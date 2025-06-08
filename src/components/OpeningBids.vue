@@ -69,14 +69,14 @@ const openingBids = ref([
   {
     bid: '1H/1S',
     points: '12-21点',
-    description: '5张以上H/S',
-    note: '第3家允许轻开叫'
+    description: '5张以上H/S，第3家允许轻开叫',
+    note: ''
   },
   {
     bid: '1NT',
     points: '15-17点',
-    description: '平均牌型',
-    note: '允许有5张高花套'
+    description: '平均牌型，允许有5张高花套',
+    note: ''
   },
   {
     bid: '2C',
@@ -87,38 +87,38 @@ const openingBids = ref([
   {
     bid: '2D',
     points: '6-10点',
-    description: '好的6张以上D套',
-    note: '阻击叫'
+    description: '好的6张以上D套，阻击叫',
+    note: ''
   },
   {
     bid: '2H',
     points: '6-10点',
-    description: '好的6张以上H套',
-    note: '阻击叫'
+    description: '好的6张以上H套，阻击叫',
+    note: ''
   },
   {
     bid: '2S',
     points: '6-10点',
-    description: '好的6张以上S套',
-    note: '阻击叫'
+    description: '好的6张以上S套，阻击叫',
+    note: ''
   },
   {
     bid: '2NT',
     points: '20-21点',
-    description: '平均牌型',
-    note: '允许有5张高花套'
+    description: '平均牌型，允许有5张高花套',
+    note: ''
   },
   {
     bid: '3C/3D',
     points: '6-10点',
-    description: '好的7张C/D套',
-    note: '阻击叫'
+    description: '好的7张C/D套，阻击叫',
+    note: ''
   },
   {
     bid: '3H/3S',
     points: '6-10点',
-    description: '好的7张H/S套',
-    note: '阻击叫'
+    description: '好的7张H/S套，阻击叫',
+    note: ''
   },
   {
     bid: '3NT',
@@ -129,20 +129,20 @@ const openingBids = ref([
   {
     bid: '4C/4D',
     points: '6-10点',
-    description: '好的8张C/D套',
-    note: '阻击叫'
+    description: '好的8张C/D套，阻击叫',
+    note: ''
   },
   {
     bid: '4H/4S',
     points: '6-10点',
-    description: '好的8张H/S套',
-    note: '阻击叫'
+    description: '好的8张H/S套，阻击叫',
+    note: ''
   },
   {
     bid: '5C/5D',
     points: '8-10点',
-    description: '好的9张C/D套，或8张有单缺',
-    note: '阻击叫'
+    description: '好的9张C/D套，或8张有单缺，阻击叫',
+    note: ''
   }
 ])
 

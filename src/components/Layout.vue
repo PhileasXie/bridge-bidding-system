@@ -21,21 +21,16 @@
             <template #title>
               <el-icon><Document /></el-icon>
               <span>开叫体系</span>
-            </template>
-            <el-menu-item index="1-1">1C 开叫</el-menu-item>
-            <el-menu-item index="1-2">1D 开叫</el-menu-item>
-            <el-menu-item index="1-3">1H/1S 开叫</el-menu-item>
-            <el-menu-item index="1-4">1NT 开叫</el-menu-item>
-            <el-menu-item index="1-5">2C 开叫</el-menu-item>
+            </template>            
           </el-sub-menu>
           <el-sub-menu index="2">
             <template #title>
               <el-icon><ChatDotRound /></el-icon>
               <span>应叫体系</span>
             </template>
-            <el-menu-item index="2-1" @click="$router.push('/club-responses')">1梅花开叫后的应叫</el-menu-item>
-            <el-menu-item index="2-2" @click="$router.push('/diamond-responses')">1方块开叫后的应叫</el-menu-item>
-            <el-menu-item index="2-3" @click="$router.push('/major-responses')">1红心/1黑桃开叫后的应叫</el-menu-item>
+            <el-menu-item index="2-1" @click="$router.push('/club-responses')">1♣️开叫后的应叫</el-menu-item>
+            <el-menu-item index="2-2" @click="$router.push('/diamond-responses')">1♦️开叫后的应叫</el-menu-item>
+            <el-menu-item index="2-3" @click="$router.push('/major-responses')">1♥️/1♠️开叫后的应叫</el-menu-item>
             <el-menu-item index="2-4" @click="$router.push('/notrump-responses')">1NT开叫后的应叫</el-menu-item>
           </el-sub-menu>
           <el-sub-menu index="3">
