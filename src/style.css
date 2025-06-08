@@ -47,9 +47,41 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  place-items: flex-start; /* 改为顶部对齐 */
   min-width: 320px;
   min-height: 100vh;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* 移动端优化 */
+@media (max-width: 768px) {
+  body {
+    padding: 0.5rem;
+  }
+  
+  #app {
+    padding: 1rem;
+    width: 100%;
+  }
+  
+  .bridge-card {
+    padding: 1rem;
+  }
+  
+  .bridge-title {
+    font-size: 1.5rem;
+  }
+  
+  .bridge-subtitle {
+    font-size: 1.2rem;
+  }
+  
+  button {
+    padding: 0.8em 1em; /* 增大点击区域 */
+    min-width: 44px; /* 满足WCAG触摸目标尺寸 */
+    min-height: 44px;
+  }
 }
 
 h1 {

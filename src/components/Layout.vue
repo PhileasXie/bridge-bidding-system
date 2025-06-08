@@ -88,4 +88,62 @@ import { Document, ChatDotRound, Tickets } from '@element-plus/icons-vue'
 :deep(.el-menu-item:hover) {
   color: #f6ad55;
 }
-</style> 
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .el-header {
+    padding: 0 10px;
+  }
+  
+  .el-header h1 {
+    font-size: 1.2rem;
+  }
+  
+  :deep(.el-menu--horizontal) {
+    display: none; /* 隐藏水平菜单 */
+  }
+  
+  .el-aside {
+    width: 100% !important;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    height: auto !important;
+    border-top: 1px solid #e5e7eb;
+    border-right: none;
+  }
+  
+  :deep(.el-menu) {
+    flex-direction: row;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  
+  :deep(.el-sub-menu__title),
+  :deep(.el-menu-item) {
+    padding: 0 12px;
+  }
+  
+  .el-main {
+    padding-bottom: 60px; /* 给底部菜单留空间 */
+  }
+}
+
+/* 微信浏览器特定样式 */
+@media (prefers-color-scheme: dark) {
+  /* 适配微信深色模式 */
+  .el-header {
+    background-color: #1a1a1a !important;
+  }
+  
+  .el-aside {
+    background-color: #2d2d2d !important;
+    border-top-color: #444;
+  }
+  
+  .el-main {
+    background-color: #121212 !important;
+  }
+}
+</style>
