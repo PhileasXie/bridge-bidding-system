@@ -708,7 +708,7 @@
     <div class="mb-8">      
       <h4 class="bridge-subtitle">2、1NT后约定叫被敌方加倍的再叫</h4>
       <h4 class="bridge-subtitle">1NT—（/）—2♣️—（×）</h4>
-      <el-table :data="oneNTDoubledTwoNTThreeClubRebid" style="width: 100%" border>
+      <el-table :data="oneNTStaymanDoubledRebid" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
             <span class="font-bold text-bridge-blue">{{ suitToEmoji(row.rebid) }}</span>
