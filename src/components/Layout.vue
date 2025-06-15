@@ -3,13 +3,7 @@
     <!-- 顶部导航栏 -->
     <el-header class="bg-bridge-blue text-white shadow-md">
       <div class="container mx-auto flex items-center justify-between h-full">
-        <h1 class="text-2xl font-bold">新睿桥牌二盖一体系</h1>
-        <el-menu mode="horizontal" class="bg-transparent border-none" :ellipsis="false">
-          <el-menu-item index="1">首页</el-menu-item>
-          <el-menu-item index="2">开叫</el-menu-item>
-          <el-menu-item index="3">应叫</el-menu-item>
-          <el-menu-item index="4">防守叫牌</el-menu-item>
-        </el-menu>
+        <h1 class="text-2xl font-bold">新睿桥牌二盖一体系</h1>        
       </div>
     </el-header>
 
@@ -17,12 +11,10 @@
       <!-- 侧边栏 -->
       <el-aside width="280px" class="bg-white shadow-md">
         <el-menu class="h-full border-r-0">
-          <el-sub-menu index="1">
-            <template #title>
-              <el-icon><Document /></el-icon>
-              <span>开叫体系</span>
-            </template>            
-          </el-sub-menu>
+          <el-menu-item index="1" @click="$router.push('/opening')">
+            <el-icon><Document /></el-icon>
+            <span>开叫体系</span>
+          </el-menu-item>
           <el-sub-menu index="2">
             <template #title>
               <el-icon><ChatDotRound /></el-icon>
@@ -30,18 +22,25 @@
             </template>
             <el-menu-item index="2-1" @click="$router.push('/club-responses')">1♣️开叫后的应叫</el-menu-item>
             <el-menu-item index="2-2" @click="$router.push('/diamond-responses')">1♦️开叫后的应叫</el-menu-item>
-            <el-menu-item index="2-3" @click="$router.push('/major-responses')">1♥️/1♠️开叫后的应叫</el-menu-item>
+            <el-menu-item index="2-3" @click="$router.push('/heart-responses')">1♥️开叫后的应叫</el-menu-item>
+            <el-menu-item index="2-3" @click="$router.push('/spade-responses')">1♠️开叫后的应叫</el-menu-item>
             <el-menu-item index="2-4" @click="$router.push('/notrump-responses')">1NT开叫后的应叫</el-menu-item>
+            <el-menu-item index="2-5" @click="$router.push('/two-club-responses')">2♣️开叫后的应叫</el-menu-item>
+            <el-menu-item index="2-6" @click="$router.push('/two-notrump-responses')">2NT开叫后的应叫</el-menu-item>
+            <el-menu-item index="2-7" @click="$router.push('/preemptive-opening-bid')">阻击性开叫后的应叫</el-menu-item>
           </el-sub-menu>
-          <el-sub-menu index="3">
-            <template #title>
-              <el-icon><Tickets /></el-icon>
-              <span>防守叫牌</span>
-            </template>
-            <el-menu-item index="3-1">技术性加倍</el-menu-item>
-            <el-menu-item index="3-2">争叫</el-menu-item>
-            <el-menu-item index="3-3">扣叫</el-menu-item>
-          </el-sub-menu>
+          <el-menu-item index="2-2" @click="$router.push('/slam-bids')">
+            <el-icon><Reading /></el-icon>
+            <span>满贯叫牌</span>
+          </el-menu-item>          
+          <el-menu-item index="3-1" @click="$router.push('/defensive-bidding')">
+            <el-icon><Tickets /></el-icon>
+            <span>防守叫牌</span>
+          </el-menu-item>          
+          <el-menu-item index="6-1" @click="$router.push('/opening-lead-and-signals')">
+            <el-icon><Ticket /></el-icon>
+            <span>防守</span>
+          </el-menu-item>          
         </el-menu>
       </el-aside>
 

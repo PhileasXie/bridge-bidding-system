@@ -569,9 +569,9 @@
       </el-table>
     </div>
 
-    <!-- 1C—3D后开叫方的再叫体系（SPL） -->
+    <!-- 1C—3D后开叫方的再叫体系（斯普林特） -->
     <div class="mb-8">
-      <h3 class="bridge-subtitle">1♣️—3♦️ 后开叫方的再叫（3♦️=12-15点，5张以上♣️，♦️单缺，SPL）</h3>
+      <h3 class="bridge-subtitle">1♣️—3♦️ 后开叫方的再叫（3♦️=12-15点，5张以上♣️，♦️单缺，斯普林特）</h3>
       <el-table :data="oneClubThreeDiamondRebid" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -591,9 +591,9 @@
       </el-table>
     </div>
 
-    <!-- 1C—3H后开叫方的再叫体系（SPL） -->
+    <!-- 1C—3H后开叫方的再叫体系（斯普林特） -->
     <div class="mb-8">
-      <h3 class="bridge-subtitle">1♣️—3♥️ 后开叫方的再叫（3♥️=12-15点，5张以上♣️，♥️单缺，SPL）</h3>
+      <h3 class="bridge-subtitle">1♣️—3♥️ 后开叫方的再叫（3♥️=12-15点，5张以上♣️，♥️单缺，斯普林特）</h3>
       <el-table :data="oneClubThreeHeartRebid" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -613,9 +613,9 @@
       </el-table>
     </div>
 
-    <!-- 1C—3S后开叫方的再叫体系（SPL） -->
+    <!-- 1C—3S后开叫方的再叫体系（斯普林特） -->
     <div class="mb-8">
-      <h3 class="bridge-subtitle">1♣️—3♠️ 后开叫方的再叫（3♠️=12-15点，5张以上♣️，♠️单缺，SPL）</h3>
+      <h3 class="bridge-subtitle">1♣️—3♠️ 后开叫方的再叫（3♠️=12-15点，5张以上♣️，♠️单缺，斯普林特）</h3>
       <el-table :data="oneClubThreeSpadeRebid" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -1413,8 +1413,8 @@ const oneClubResponsesFull = ref([
   { bid: '2H/2S', points: '4-8点', description: '6张以上H/S，阻击叫' },
   { bid: '2NT', points: '11-12点', description: '没有4张高花和5张以上C，邀叫' },
   { bid: '3C', points: '4-8点', description: '5张以上C，无4张高花，阻击叫；6-8点时通常高花有单缺（否则叫1NT），不逼叫' },
-  { bid: '3D', points: '12-15点', description: '5张以上C，没有4张高花，D单缺，SPL，逼局' },
-  { bid: '3H/3S', points: '12-15点', description: '5张以上C，没有4张高花，H/S单缺，SPL，逼局' },
+  { bid: '3D', points: '12-15点', description: '5张以上C，没有4张高花，D单缺，斯普林特，逼局' },
+  { bid: '3H/3S', points: '12-15点', description: '5张以上C，没有4张高花，H/S单缺，斯普林特，逼局' },
   { bid: '3NT', points: '13-15点', description: '没有4张高花' },
   { bid: '4C', points: '4-8点', description: '6张以上C，加深阻击；通常点力不高有牌型，不逼叫' },
   { bid: '4D/4H/4S', points: '5-8点', description: '7张以上D/H/S套' },
@@ -1432,7 +1432,7 @@ const oneClubOneDiamondRebidFull = ref([
   { rebid: '2NT', points: '18-19点', description: '3张以上C，可能有4张高花，不逼叫' },
   { rebid: '3C', points: '16-18点', description: '6张以上C，没有4张高花，跳叫原花邀叫' },
   { rebid: '3D', points: '16-18点', description: '5张以上C＋4张D支持，不逼叫' },
-  { rebid: '3H/3S', points: '18-21点', description: '5张以上C＋4张D支持，所叫花色H/S单缺，SPL，逼局' },
+  { rebid: '3H/3S', points: '18-21点', description: '5张以上C＋4张D支持，所叫花色H/S单缺，斯普林特，逼局' },
   { rebid: '3NT', points: '16-18点', description: '坚固的6张以上C，高花有止张' },
 ])
 
@@ -1448,7 +1448,7 @@ const oneClubOneDiamondOneHeartRebid = ref([
   { rebid: '3C', points: '11-12点', description: '4张以上C，邀叫' },
   { rebid: '3D', points: '11-12点', description: '6张以上D，邀叫' },
   { rebid: '3H', points: '15点以上', description: '5张D↑＋4张H，逼局' },
-  { rebid: '3S/4C', points: '12点以上', description: '5张D↑＋4张H，SPL，逼局' },
+  { rebid: '3S/4C', points: '12点以上', description: '5张D↑＋4张H，斯普林特，逼局' },
   { rebid: '3NT', points: '13-15点', description: '止叫' },
   { rebid: '4D', points: '13点以上', description: '7张以上D，逼局' },
   { rebid: '4H', points: '12-14点', description: '5张D↑＋4张H，止叫' },
@@ -1464,7 +1464,7 @@ const oneClubOneDiamondOneSpadeRebid = ref([
   { rebid: '2NT', points: '11-12点', description: '均型，高花无配合，邀叫' },
   { rebid: '3C', points: '11-12点', description: '4张以上C，邀叫' },
   { rebid: '3D', points: '11-12点', description: '6张以上D，邀叫' },
-  { rebid: '3H', points: '12点以上', description: '5张D↑＋4张S，SPL，逼局' },
+  { rebid: '3H', points: '12点以上', description: '5张D↑＋4张S，斯普林特，逼局' },
   { rebid: '3S', points: '15点以上', description: '5张D↑＋4张S，逼局' },
   { rebid: '3NT', points: '13-15点', description: '止叫' },
   { rebid: '4D', points: '13点以上', description: '7张以上D，逼局' },
@@ -1555,8 +1555,8 @@ const oneClubTwoClubRebidFull = ref([
   { rebid: '2NT', points: '12-14点', description: '均型，可以有4张高花，逼叫' },
   { rebid: '2NT', points: '18-19点', description: '均型，可以有4张高花；应叫人如果叫3NT就叫4NT邀请满贯' },
   { rebid: '3C', points: '12-14点', description: '4张以上C，高花有单缺，不逼叫' },
-  { rebid: '3D', points: '14点以上', description: '4张以上C，D单缺，SPL，逼局' },
-  { rebid: '3H/3S', points: '14点以上', description: '4张以上C，H/S单缺，SPL，逼局' },
+  { rebid: '3D', points: '14点以上', description: '4张以上C，D单缺，斯普林特，逼局' },
+  { rebid: '3H/3S', points: '14点以上', description: '4张以上C，H/S单缺，斯普林特，逼局' },
 ])
 
 const oneClubTwoClubTwoDiamondRebidFull = ref([
@@ -1564,7 +1564,7 @@ const oneClubTwoClubTwoDiamondRebidFull = ref([
   { rebid: '2S', points: '10点以上', description: 'S有止张，H无止张，逼叫' },
   { rebid: '2NT', points: '13点以上', description: '高花均有止张，逼局' },
   { rebid: '3C', points: '10-12点', description: '5张以上C，不逼叫' },
-  { rebid: '3H/3S', points: '13点以上', description: '4张以上C，SPL，逼局' },
+  { rebid: '3H/3S', points: '13点以上', description: '4张以上C，斯普林特，逼局' },
   { rebid: '4C', points: '10-12点', description: '5张以上C，M无废点，邀叫' },
 ])
 
@@ -1574,9 +1574,9 @@ const oneClubTwoClubTwoHeartRebidFull = ref([
   { rebid: '3C', points: '10-12点', description: '5张以上C，无4张M，不逼叫' },
   { rebid: '3D', points: '13点以上', description: 'D有止张或4张D，S无止，逼局' },
   { rebid: '3H', points: '14点以上', description: '5张C＋4张H，2-4-2-5型，高限' },
-  { rebid: '3S', points: '13点以上', description: '5张C↑＋4张H，SPL，逼局' },
+  { rebid: '3S', points: '13点以上', description: '5张C↑＋4张H，斯普林特，逼局' },
   { rebid: '4C', points: '10-12点', description: '5张以上C，M无废点，邀叫' },
-  { rebid: '4D', points: '13点以上', description: '5张C↑＋4张H，SPL，逼局' },
+  { rebid: '4D', points: '13点以上', description: '5张C↑＋4张H，斯普林特，逼局' },
   { rebid: '4H', points: '12-13点', description: '5张C＋4张H，2-4-2-5型，低限' },
 ])
 
@@ -1587,8 +1587,8 @@ const oneClubTwoClubTwoSpadeRebidFull = ref([
   { rebid: '3H', points: '13点以上', description: 'D无止张，H有止张，逼局' },
   { rebid: '3S', points: '14点以上', description: '5张C＋4张S，4-2-2-5，高限' },
   { rebid: '4C', points: '10-12点', description: '5张以上C，M无废点，邀叫' },
-  { rebid: '4D', points: '13点以上', description: '5张C↑＋4张S，SPL，逼局' },
-  { rebid: '4H', points: '13点以上', description: '5张C↑＋4张S，SPL，逼局' },
+  { rebid: '4D', points: '13点以上', description: '5张C↑＋4张S，斯普林特，逼局' },
+  { rebid: '4H', points: '13点以上', description: '5张C↑＋4张S，斯普林特，逼局' },
   { rebid: '4S', points: '12-13点', description: '5张C＋4张S，4-2-2-5，低限' },
 ])
 
@@ -1598,7 +1598,7 @@ const oneClubTwoClubTwoNTRebidFull = ref([
   { rebid: '3H/3S', points: '13点以上', description: '5张以上C＋4张H/S，逼局' },
   { rebid: '3NT', points: '12-15点', description: '没有4张高花，止叫' },
   { rebid: '4C', points: '10-12点', description: '5张C↑，未叫花色有单缺，邀叫' },
-  { rebid: '4D/4H/4S', points: '16点以上', description: '5张C↑，SPL，强烈满贯兴趣' },
+  { rebid: '4D/4H/4S', points: '16点以上', description: '5张C↑，斯普林特，强烈满贯兴趣' },
   { rebid: '4NT', points: '18-19点', description: '4张C↑，无4张高花，满贯邀叫' },
 ])
 
@@ -1716,7 +1716,7 @@ const oneClubOneHeartTwoDiamondResponses = ref([
   { rebid: '3C', points: '8点以上', description: '3张以上C，逼局' },
   { rebid: '3D', points: '8点以上', description: '4张以上D，逼局' },
   { rebid: '3H', points: '8点以上', description: '6张以上H，逼局' },
-  { rebid: '3S', points: '9点以上', description: '4张以上D，SPL，逼局' },
+  { rebid: '3S', points: '9点以上', description: '4张以上D，斯普林特，逼局' },
   { rebid: '3NT', points: '8-11点', description: 'S有两止，止叫' },
 ])
 
@@ -1968,7 +1968,7 @@ const oneClubOneDiamondOvercallResponses = ref([
   { bid: '2H/2S', points: '4-6点', description: '6张以上H/S；阻击叫' },
   { bid: '2NT', points: '11-12点', description: 'D有止张，没有4张高花，邀叫' },
   { bid: '3C', points: '4-8点', description: '5张以上C，阻击叫' },
-  { bid: '3D/3M', points: '12点以上', description: '5张以上C，D/H/S单缺，SPL，逼局' },
+  { bid: '3D/3M', points: '12点以上', description: '5张以上C，D/H/S单缺，斯普林特，逼局' },
   { bid: '3NT', points: '12-15点', description: 'D有止张，没有4张高花套，止叫' },
 ])
 
@@ -1984,7 +1984,7 @@ const oneClubOneHeartOvercallResponses = ref([
   { bid: '2NT', points: '11-12点', description: 'H有止张，没有4张S，邀叫' },
   { bid: '3C', points: '4-8点', description: '5张以上C，阻击叫' },
   { bid: '3D', points: '6-8点', description: '6张以上D，阻击叫' },
-  { bid: '3H/3S', points: '12点以上', description: '5张以上C，H/S单缺，SPL，逼局' },
+  { bid: '3H/3S', points: '12点以上', description: '5张以上C，H/S单缺，斯普林特，逼局' },
   { bid: '3NT', points: '12-15点', description: 'H有止张，没有4张S，止叫' },
 ])
 
@@ -1999,7 +1999,7 @@ const oneClubOneSpadeOvercallResponses = ref([
   { bid: '2NT', points: '11-12点', description: 'S有止张，没有4张H，邀叫' },
   { bid: '3C', points: '4-8点', description: '5张以上C，阻击叫' },
   { bid: '3D/3H', points: '6-8点', description: '6张以上D/H，阻击叫' },
-  { bid: '3S', points: '12点以上', description: '5张以上C，S单缺，SPL，逼局' },
+  { bid: '3S', points: '12点以上', description: '5张以上C，S单缺，斯普林特，逼局' },
   { bid: '3NT', points: '12-15点', description: 'S有止张，没有4张H，止叫' },
 ])
 
@@ -2024,7 +2024,7 @@ const oneClubMichaelsCueResponses = ref([
   { bid: '2S', points: '10点以上', description: '5张以上D，逼叫' },
   { bid: '2NT', points: '11-12点', description: '高花均有止张，邀叫' },
   { bid: '3C', points: '6-9点', description: '5张以上C，不逼叫' },
-  { bid: '3H/3S', points: '12点以上', description: '5张以上C，H/S单缺，SPL，逼局' },
+  { bid: '3H/3S', points: '12点以上', description: '5张以上C，H/S单缺，斯普林特，逼局' },
   { bid: '3NT', points: '12-15点', description: '高花均有止张，止叫' },
 ])
 
