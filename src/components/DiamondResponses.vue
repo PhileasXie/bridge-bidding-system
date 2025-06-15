@@ -1210,7 +1210,182 @@
       </el-table>
     </div>
 
-    <!-- 继续添加其他跳叫相关的表格... -->
+    <!-- 1D——1H 3C——?-->
+    <div class="mb-8">
+      <h3 class="bridge-subtitle">1♦️—1♥️—3♣️ 后应叫方的再叫（跳叫新花=18—21点，5－4张以上套）</h3>
+      <el-table :data="oneDiamondOneHeartJumpThreeClubRebid" style="width: 100%" border>
+        <el-table-column prop="rebid" label="再叫" width="120">
+          <template #default="{ row }">
+            <span class="font-bold text-bridge-blue">{{ suitToEmoji(row.rebid) }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column prop="points" label="点力范围" width="120">
+          <template #default="{ row }">
+            <el-tag :type="getPointTagType(row.points)" effect="plain">{{ row.points }}</el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column prop="description" label="说明">
+          <template #default="{ row }">
+            <span>{{ suitToEmoji(row.description) }}</span>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
+
+    <!-- 1D——1S 3C——?-->
+    <div class="mb-8">
+      <h3 class="bridge-subtitle">1♦️—1♠️—3♣️ 后应叫方的再叫（跳叫新花=18—21点，5－4张以上套）</h3>
+      <el-table :data="oneDiamondOneSpadeJumpThreeClubRebid" style="width: 100%" border>
+        <el-table-column prop="rebid" label="再叫" width="120">
+          <template #default="{ row }">
+            <span class="font-bold text-bridge-blue">{{ suitToEmoji(row.rebid) }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column prop="points" label="点力范围" width="120">
+          <template #default="{ row }">
+            <el-tag :type="getPointTagType(row.points)" effect="plain">{{ row.points }}</el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column prop="description" label="说明">
+          <template #default="{ row }">
+            <span>{{ suitToEmoji(row.description) }}</span>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
+
+    <!-- 1D——1NT 3C——?-->
+    <div class="mb-8">
+      <h3 class="bridge-subtitle">1♦️—1NT—3♣️ 后应叫方的再叫（跳叫新花=18—21点，5－4张以上套）</h3>
+      <el-table :data="oneDiamondOneNTJumpThreeClubRebid" style="width: 100%" border>
+        <el-table-column prop="rebid" label="再叫" width="120">
+          <template #default="{ row }">
+            <span class="font-bold text-bridge-blue">{{ suitToEmoji(row.rebid) }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column prop="points" label="点力范围" width="120">
+          <template #default="{ row }">
+            <el-tag :type="getPointTagType(row.points)" effect="plain">{{ row.points }}</el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column prop="description" label="说明">
+          <template #default="{ row }">
+            <span>{{ suitToEmoji(row.description) }}</span>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
+
+    <!-- 1D——1H 3D——?-->
+    <div class="mb-8">
+      <h3 class="bridge-subtitle">1♦️—1♥️—3♦️ 后应叫方的再叫（16—18点，6张以上套，邀叫）</h3>
+      <el-table :data="oneDiamondOneHeartJumpThreeDiamondRebid" style="width: 100%" border>
+        <el-table-column prop="rebid" label="再叫" width="120">
+          <template #default="{ row }">
+            <span class="font-bold text-bridge-blue">{{ suitToEmoji(row.rebid) }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column prop="points" label="点力范围" width="120">
+          <template #default="{ row }">
+            <el-tag :type="getPointTagType(row.points)" effect="plain">{{ row.points }}</el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column prop="description" label="说明">
+          <template #default="{ row }">
+            <span>{{ suitToEmoji(row.description) }}</span>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
+
+    <!-- 1D——1H 3H——?-->
+    <div class="mb-8">
+      <h3 class="bridge-subtitle">1♦️—1♥️—3♥️ 后应叫方的再叫（15—17点，4张♥️支持，邀叫）</h3>
+      <el-table :data="oneDiamondOneHeartJumpThreeHeartRebid" style="width: 100%" border>
+        <el-table-column prop="rebid" label="再叫" width="120">
+          <template #default="{ row }">
+            <span class="font-bold text-bridge-blue">{{ suitToEmoji(row.rebid) }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column prop="points" label="点力范围" width="120">
+          <template #default="{ row }">
+            <el-tag :type="getPointTagType(row.points)" effect="plain">{{ row.points }}</el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column prop="description" label="说明">
+          <template #default="{ row }">
+            <span>{{ suitToEmoji(row.description) }}</span>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
+
+    <!-- 1D——1S 3D——?-->
+    <div class="mb-8">
+      <h3 class="bridge-subtitle">1♦️—1♠️—3♦️ 后应叫方的再叫（16—18点，6张以上套，邀叫）</h3>
+      <el-table :data="oneDiamondOneSpadeJumpThreeDiamondRebid" style="width: 100%" border>
+        <el-table-column prop="rebid" label="再叫" width="120">
+          <template #default="{ row }">
+            <span class="font-bold text-bridge-blue">{{ suitToEmoji(row.rebid) }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column prop="points" label="点力范围" width="120">
+          <template #default="{ row }">
+            <el-tag :type="getPointTagType(row.points)" effect="plain">{{ row.points }}</el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column prop="description" label="说明">
+          <template #default="{ row }">
+            <span>{{ suitToEmoji(row.description) }}</span>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
+
+    <!-- 1D——1S 3S——?-->
+    <div class="mb-8">
+      <h3 class="bridge-subtitle">1♦️—1♠️—3♠️ 后应叫方的再叫（15—17点，4张♠️支持，邀叫）</h3>
+      <el-table :data="oneDiamondOneSpadeJumpThreeSpadeRebid" style="width: 100%" border>
+        <el-table-column prop="rebid" label="再叫" width="120">
+          <template #default="{ row }">
+            <span class="font-bold text-bridge-blue">{{ suitToEmoji(row.rebid) }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column prop="points" label="点力范围" width="120">
+          <template #default="{ row }">
+            <el-tag :type="getPointTagType(row.points)" effect="plain">{{ row.points }}</el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column prop="description" label="说明">
+          <template #default="{ row }">
+            <span>{{ suitToEmoji(row.description) }}</span>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
+
+    <!-- 1D——1NT 3D——?-->
+    <div class="mb-8">
+      <h3 class="bridge-subtitle">1♦️—1NT—3♦️ 后应叫方的再叫（16—18点，6张♦️以上套，邀叫）</h3>
+      <el-table :data="oneDiamondOneNTJumpThreeDiamondRebid" style="width: 100%" border>
+        <el-table-column prop="rebid" label="再叫" width="120">
+          <template #default="{ row }">
+            <span class="font-bold text-bridge-blue">{{ suitToEmoji(row.rebid) }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column prop="points" label="点力范围" width="120">
+          <template #default="{ row }">
+            <el-tag :type="getPointTagType(row.points)" effect="plain">{{ row.points }}</el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column prop="description" label="说明">
+          <template #default="{ row }">
+            <span>{{ suitToEmoji(row.description) }}</span>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
+
 
     <!-- 十一、1D在敌方干扰后的叫牌 -->
     <div class="mb-8">
@@ -1287,7 +1462,155 @@
       </el-table>
     </div>
 
-    <!-- 继续添加其他干扰情况的表格... -->
+    <div class="mb-8">
+      <h4 class="bridge-subtitle">1♦️—(1♠️)—?</h4>
+      <el-table :data="oneDiamondOneSpadeInterferenceResponses" style="width: 100%" border>
+        <el-table-column prop="bid" label="应叫" width="120">
+          <template #default="{ row }">
+            <span class="font-bold text-bridge-blue">{{ suitToEmoji(row.bid) }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column prop="points" label="点力范围" width="120">
+          <template #default="{ row }">
+            <el-tag :type="getPointTagType(row.points)" effect="plain">{{ row.points }}</el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column prop="description" label="说明">
+          <template #default="{ row }">
+            <span>{{ suitToEmoji(row.description) }}</span>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
+
+    <div class="mb-8">
+      <h4 class="bridge-subtitle">1♦️—(2♣️)—?</h4>
+      <el-table :data="oneDiamondTwoClubInterferenceResponses" style="width: 100%" border>
+        <el-table-column prop="bid" label="应叫" width="120">
+          <template #default="{ row }">
+            <span class="font-bold text-bridge-blue">{{ suitToEmoji(row.bid) }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column prop="points" label="点力范围" width="120">
+          <template #default="{ row }">
+            <el-tag :type="getPointTagType(row.points)" effect="plain">{{ row.points }}</el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column prop="description" label="说明">
+          <template #default="{ row }">
+            <span>{{ suitToEmoji(row.description) }}</span>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
+    
+    <div class="mb-8">
+      <h4 class="bridge-subtitle">1♦️—(3♣️)—?</h4>
+      <el-table :data="oneDiamondThreeClubInterferenceSpecial" style="width: 100%" border>
+        <el-table-column prop="bid" label="应叫" width="120">
+          <template #default="{ row }">
+            <span class="font-bold text-bridge-blue">{{ suitToEmoji(row.bid) }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column prop="points" label="点力范围" width="120">
+          <template #default="{ row }">
+            <el-tag :type="getPointTagType(row.points)" effect="plain">{{ row.points }}</el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column prop="description" label="说明">
+          <template #default="{ row }">
+            <span>{{ suitToEmoji(row.description) }}</span>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
+
+    <!-- 3、1D在敌方1NT争叫后 -->
+    <div class="mb-8">
+      <h3 class="bridge-subtitle">3、1♦️在敌方1NT争叫后</h3>
+      <div class="bridge-card mb-4">
+        <div class="prose max-w-none">
+          敌方1NT＝15—18点，均型牌
+        </div>
+      </div>
+
+      <h4 class="bridge-subtitle">1♦️—(1NT)—?</h4>
+      <el-table :data="oneDiamondOneNTInterferenceResponses" style="width: 100%" border>
+        <el-table-column prop="bid" label="应叫" width="120">
+          <template #default="{ row }">
+            <span class="font-bold text-bridge-blue">{{ suitToEmoji(row.bid) }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column prop="points" label="点力范围" width="120">
+          <template #default="{ row }">
+            <el-tag :type="getPointTagType(row.points)" effect="plain">{{ row.points }}</el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column prop="description" label="说明">
+          <template #default="{ row }">
+            <span>{{ suitToEmoji(row.description) }}</span>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
+
+    <!-- 4、1D在敌方迈克尔斯扣叫后 -->
+    <div class="mb-8">
+      <h3 class="bridge-subtitle">4、1♦️在敌方迈克尔斯扣叫后</h3>
+      <div class="bridge-card mb-4">
+        <div class="prose max-w-none">
+          敌方2♦️＝5张H＋5张S
+        </div>
+      </div>
+
+      <h4 class="bridge-subtitle">1♦️—(2♦️)—?</h4>
+      <el-table :data="oneDiamondTwoDiamondMichaelsResponses" style="width: 100%" border>
+        <el-table-column prop="bid" label="应叫" width="120">
+          <template #default="{ row }">
+            <span class="font-bold text-bridge-blue">{{ suitToEmoji(row.bid) }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column prop="points" label="点力范围" width="120">
+          <template #default="{ row }">
+            <el-tag :type="getPointTagType(row.points)" effect="plain">{{ row.points }}</el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column prop="description" label="说明">
+          <template #default="{ row }">
+            <span>{{ suitToEmoji(row.description) }}</span>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
+
+    <!-- 5、1D在敌方不寻常2NT争叫后 -->
+    <div class="mb-8">
+      <h3 class="bridge-subtitle">5、1♦️在敌方不寻常2NT争叫后</h3>
+      <div class="bridge-card mb-4">
+        <div class="prose max-w-none">
+          敌方2NT＝5张♣️＋5张♥️
+        </div>
+      </div>
+
+      <h4 class="bridge-subtitle">1♦️—(2NT)—?</h4>
+      <el-table :data="oneDiamondTwoNTUnusualResponses" style="width: 100%" border>
+        <el-table-column prop="bid" label="应叫" width="120">
+          <template #default="{ row }">
+            <span class="font-bold text-bridge-blue">{{ suitToEmoji(row.bid) }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column prop="points" label="点力范围" width="120">
+          <template #default="{ row }">
+            <el-tag :type="getPointTagType(row.points)" effect="plain">{{ row.points }}</el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column prop="description" label="说明">
+          <template #default="{ row }">
+            <span>{{ suitToEmoji(row.description) }}</span>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
 
     <!-- 6、支持性加倍或支持性再加倍 -->
     <div class="mb-8">
@@ -1319,7 +1642,6 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
 
 // 花色转换为emoji的函数
 const suitToEmoji = (text: string) => {

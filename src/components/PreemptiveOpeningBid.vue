@@ -303,17 +303,17 @@
   }
   
   // 点力标签类型
-  const getPointTagType = (points: string): string => {
+const getPointTagType = (points: string): 'danger' | 'warning' | 'success' | 'info' | 'primary' => {
     if (points.includes('0') || points.includes('1') || points.includes('2') || points.includes('3')) {
-      return 'info'
+        return 'info';
     } else if (points.includes('4') || points.includes('5') || points.includes('6') || points.includes('7')) {
-      return 'warning'
+        return 'warning';
     } else if (points.includes('8') || points.includes('9') || points.includes('10') || points.includes('11')) {
-      return 'success'
+        return 'success';
     } else {
-      return 'danger'
+        return 'danger';
     }
-  }
+};
   
   // 2D阻击叫的应叫数据
   const twoDiamondPreemptResponses = ref([
