@@ -1486,7 +1486,6 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
 
 // 花色转换为emoji的函数
 const suitToEmoji = (text: string) => {
