@@ -109,10 +109,10 @@
       </el-table>
     </div>
 
-    <!-- 1C-1H/1S后开叫方的再叫表格 -->
+    <!-- 1C—1D—2C后应叫方的再叫 -->
     <div class="mb-8">
-      <h3 class="bridge-subtitle">1♣️—1♥️/1♠️ 后开叫方的再叫</h3>
-      <el-table :data="oneClubOneMajorRebid" style="width: 100%" border>
+      <h4 class="bridge-subtitle">1♣️—1♦️—2♣️ 后应叫方的再叫</h4>
+      <el-table :data="oneClubOneDiamondTwoClubRebid" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
             <span class="font-bold text-bridge-blue">{{ suitToEmoji(row.rebid) }}</span>
@@ -131,6 +131,230 @@
       </el-table>
     </div>
 
+    <!-- 1C—1D—2D后应叫方的再叫 -->
+    <div class="mb-8">
+      <h4 class="bridge-subtitle">1♣️—1♦️—2♦️（12—15点，5张以上♣️＋4张♦️） 后应叫方的再叫</h4>
+      <el-table :data="oneClubOneDiamondTwoDiamondRebid" style="width: 100%" border>
+        <el-table-column prop="rebid" label="再叫" width="120">
+          <template #default="{ row }">
+            <span class="font-bold text-bridge-blue">{{ suitToEmoji(row.rebid) }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column prop="points" label="点力范围" width="120">
+          <template #default="{ row }">
+            <el-tag :type="getPointTagType(row.points)" effect="plain">{{ row.points }}</el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column prop="description" label="说明">
+          <template #default="{ row }">
+            <span>{{ suitToEmoji(row.description) }}</span>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
+
+    <!-- 1C—1H后开叫方的再叫（主表格） -->
+    <div class="mb-8">
+      <h3 class="bridge-subtitle">1♣️—1♥️ 后开叫方的再叫</h3>
+      <h5>6 —11点，4张以上♥️，或有更长低花；或12点以上，♥️为长套，4-4M叫1♥️，5-5M叫1♠️，逼叫</h5>
+      <el-table :data="oneClubOneHeartRebidFull" style="width: 100%" border>
+        <el-table-column prop="rebid" label="再叫" width="120">
+          <template #default="{ row }">
+            <span class="font-bold text-bridge-blue">{{ suitToEmoji(row.rebid) }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column prop="points" label="点力范围" width="120">
+          <template #default="{ row }">
+            <el-tag :type="getPointTagType(row.points)" effect="plain">{{ row.points }}</el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column prop="description" label="说明">
+          <template #default="{ row }">
+            <span>{{ suitToEmoji(row.description) }}</span>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
+
+    <!-- 1C—1H—1S后应叫方的再叫 -->
+    <div class="mb-8">
+      <h4 class="bridge-subtitle">1♣️—1♥️—1♠️（12—17点，5张♣️＋4张♠️） 后应叫方的再叫</h4>
+      <el-table :data="oneClubOneHeartOneSpadeRebid" style="width: 100%" border>
+        <el-table-column prop="rebid" label="再叫" width="120">
+          <template #default="{ row }">
+            <span class="font-bold text-bridge-blue">{{ suitToEmoji(row.rebid) }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column prop="points" label="点力范围" width="120">
+          <template #default="{ row }">
+            <el-tag :type="getPointTagType(row.points)" effect="plain">{{ row.points }}</el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column prop="description" label="说明">
+          <template #default="{ row }">
+            <span>{{ suitToEmoji(row.description) }}</span>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
+
+    <!-- 1C—1H—2C后应叫方的再叫 -->
+    <div class="mb-8">
+      <h4 class="bridge-subtitle">1♣️—1♥️—2♣️（12—15点，6张以上♣️） 后应叫方的再叫</h4>
+      <el-table :data="oneClubOneHeartTwoClubRebid" style="width: 100%" border>
+        <el-table-column prop="rebid" label="再叫" width="120">
+          <template #default="{ row }">
+            <span class="font-bold text-bridge-blue">{{ suitToEmoji(row.rebid) }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column prop="points" label="点力范围" width="120">
+          <template #default="{ row }">
+            <el-tag :type="getPointTagType(row.points)" effect="plain">{{ row.points }}</el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column prop="description" label="说明">
+          <template #default="{ row }">
+            <span>{{ suitToEmoji(row.description) }}</span>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
+
+    <!-- 1C—1H—2H后应叫方的再叫 -->
+    <div class="mb-8">
+      <h4 class="bridge-subtitle">1♣️—1♥️—2♥️（12—15点，4张♥️或3张♥️有单缺） 后应叫方的再叫</h4>
+      <el-table :data="oneClubOneHeartTwoHeartRebid" style="width: 100%" border>
+        <el-table-column prop="rebid" label="再叫" width="120">
+          <template #default="{ row }">
+            <span class="font-bold text-bridge-blue">{{ suitToEmoji(row.rebid) }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column prop="points" label="点力范围" width="120">
+          <template #default="{ row }">
+            <el-tag :type="getPointTagType(row.points)" effect="plain">{{ row.points }}</el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column prop="description" label="说明">
+          <template #default="{ row }">
+            <span>{{ suitToEmoji(row.description) }}</span>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
+
+    <!-- 1C—1H—2H-2NT后应叫方的再叫 -->
+    <div class="mb-8">
+      <h4 class="bridge-subtitle">1♣️—1♥️—2♥️-2NT（10点以上，重询高花） 后应叫方的再叫</h4>
+      <el-table :data="oneClubOneHeartTwoHeartTwoNTRebid" style="width: 100%" border>
+        <el-table-column prop="rebid" label="再叫" width="120">
+          <template #default="{ row }">
+            <span class="font-bold text-bridge-blue">{{ suitToEmoji(row.rebid) }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column prop="points" label="点力范围" width="120">
+          <template #default="{ row }">
+            <el-tag :type="getPointTagType(row.points)" effect="plain">{{ row.points }}</el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column prop="description" label="说明">
+          <template #default="{ row }">
+            <span>{{ suitToEmoji(row.description) }}</span>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
+
+    <!-- 1C—1S后开叫方的再叫（主表格） -->
+    <div class="mb-8">
+      <h3 class="bridge-subtitle">1♣️—1♠️ 后开叫方的再叫</h3>
+      <h5>6 点以上，4张以上♠️</h5>
+      <el-table :data="oneClubOneSpadeRebidFull" style="width: 100%" border>
+        <el-table-column prop="rebid" label="再叫" width="120">
+          <template #default="{ row }">
+            <span class="font-bold text-bridge-blue">{{ suitToEmoji(row.rebid) }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column prop="points" label="点力范围" width="120">
+          <template #default="{ row }">
+            <el-tag :type="getPointTagType(row.points)" effect="plain">{{ row.points }}</el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column prop="description" label="说明">
+          <template #default="{ row }">
+            <span>{{ suitToEmoji(row.description) }}</span>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
+
+    <!-- 1C—1S—2C后应叫方的再叫 -->
+    <div class="mb-8">
+      <h4 class="bridge-subtitle">1♣️—1♠️—2♣️（12—15点，6张以上♣️） 后应叫方的再叫</h4>
+      <el-table :data="oneClubOneSpadeTwoClubRebid" style="width: 100%" border>
+        <el-table-column prop="rebid" label="再叫" width="120">
+          <template #default="{ row }">
+            <span class="font-bold text-bridge-blue">{{ suitToEmoji(row.rebid) }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column prop="points" label="点力范围" width="120">
+          <template #default="{ row }">
+            <el-tag :type="getPointTagType(row.points)" effect="plain">{{ row.points }}</el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column prop="description" label="说明">
+          <template #default="{ row }">
+            <span>{{ suitToEmoji(row.description) }}</span>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
+
+    <!-- 1C—1S—2S后应叫方的再叫 -->
+    <div class="mb-8">
+      <h4 class="bridge-subtitle">1♣️—1♠️—2♠️（12—15点，4张♠️或3张♠️有单缺） 后应叫方的再叫</h4>
+      <el-table :data="oneClubOneSpadeTwoSpadeRebid" style="width: 100%" border>
+        <el-table-column prop="rebid" label="再叫" width="120">
+          <template #default="{ row }">
+            <span class="font-bold text-bridge-blue">{{ suitToEmoji(row.rebid) }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column prop="points" label="点力范围" width="120">
+          <template #default="{ row }">
+            <el-tag :type="getPointTagType(row.points)" effect="plain">{{ row.points }}</el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column prop="description" label="说明">
+          <template #default="{ row }">
+            <span>{{ suitToEmoji(row.description) }}</span>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
+
+    <!-- 1C—1S—2S-2NT后开叫方的再叫 -->
+    <div class="mb-8">
+      <h4 class="bridge-subtitle">1♣️—1♠️—2♠️-2NT（10点以上，重询高花） 后开叫方的再叫</h4>
+      <el-table :data="oneClubOneSpadeTwoSpadeTwoNTRebid" style="width: 100%" border>
+        <el-table-column prop="rebid" label="再叫" width="120">
+          <template #default="{ row }">
+            <span class="font-bold text-bridge-blue">{{ suitToEmoji(row.rebid) }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column prop="points" label="点力范围" width="120">
+          <template #default="{ row }">
+            <el-tag :type="getPointTagType(row.points)" effect="plain">{{ row.points }}</el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column prop="description" label="说明">
+          <template #default="{ row }">
+            <span>{{ suitToEmoji(row.description) }}</span>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
+
+
+
     <!-- 三、双路重询斯台曼 -->
     <div class="mb-8">
       <h2 class="bridge-title">三、双路重询斯台曼</h2>
@@ -138,6 +362,7 @@
     <!-- 1C—1D—1NT后应叫方的再叫（主表格） -->
     <div class="mb-8">
       <h3 class="bridge-subtitle">1♣️—1♦️—1NT 后应叫方的再叫</h3>
+      <h5>12—14点，3张以上♣️，均型，可能有4张高花</h5>
       <el-table :data="oneClubOneDiamondOneNTRebid" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -159,7 +384,8 @@
 
     <!-- 1C—1D—1NT—2C后再叫 -->
     <div class="mb-8">
-      <h4 class="bridge-subtitle">1♣️—1♦️—1NT—2♣️ 后再叫</h4>
+      <h4 class="bridge-subtitle">1♣️—1♦️—1NT—2♣️—2♦️ 后再叫</h4>
+      <h5>(2♣️=6—12点，重询斯台曼，要求同伴叫2D；示弱或邀叫)</h5>
       <el-table :data="oneClubOneDiamondOneNTTwoClubRebid" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -182,6 +408,7 @@
     <!-- 1C—1D—1NT—2D后再叫 -->
     <div class="mb-8">
       <h4 class="bridge-subtitle">1♣️—1♦️—1NT—2♦️ 后再叫</h4>
+      <h5>（2♦️=13点以上，重询斯台曼，逼局）</h5>
       <el-table :data="oneClubOneDiamondOneNTTwoDiamondRebid" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -201,13 +428,151 @@
       </el-table>
     </div>
 
+    <!-- 1C—1H—1NT后应叫方的再叫（主表格） -->
+    <div class="mb-8">
+      <h3 class="bridge-subtitle">1♣️—1♥️—1NT 后应叫方的再叫</h3>
+      <h5>（1NT=12—14点，均型，无4张高花，不保证其他花色止张）</h5>
+      <el-table :data="oneClubOneHeartOneNTRebid" style="width: 100%" border>
+        <el-table-column prop="rebid" label="再叫" width="120">
+          <template #default="{ row }">
+            <span class="font-bold text-bridge-blue">{{ suitToEmoji(row.rebid) }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column prop="points" label="点力范围" width="120">
+          <template #default="{ row }">
+            <el-tag :type="getPointTagType(row.points)" effect="plain">{{ row.points }}</el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column prop="description" label="说明">
+          <template #default="{ row }">
+            <span>{{ suitToEmoji(row.description) }}</span>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
+
+    <!-- 1C—1H—1NT-2C-2D后应叫方的再叫（主表格） -->
+    <div class="mb-8">
+      <h3 class="bridge-subtitle">1♣️—1♥️—1NT—2♣️—2♦️ 后应叫方的再叫</h3>      
+      <el-table :data="oneClubOneHeartOneNTTwoClubTwoDiamondRebid" style="width: 100%" border>
+        <el-table-column prop="rebid" label="再叫" width="120">
+          <template #default="{ row }">
+            <span class="font-bold text-bridge-blue">{{ suitToEmoji(row.rebid) }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column prop="points" label="点力范围" width="120">
+          <template #default="{ row }">
+            <el-tag :type="getPointTagType(row.points)" effect="plain">{{ row.points }}</el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column prop="description" label="说明">
+          <template #default="{ row }">
+            <span>{{ suitToEmoji(row.description) }}</span>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
+
+    <!-- 1C—1H—1NT—2D后再叫 -->
+    <div class="mb-8">
+      <h4 class="bridge-subtitle">1♣️—1♥️—1NT—2♦️ 后开叫方的再叫</h4>
+      <h5>(2♦️=13点以上，重询斯台曼，逼局)</h5>
+      <el-table :data="oneClubOneHeartOneNTTwoDiamondRebid" style="width: 100%" border>
+        <el-table-column prop="rebid" label="再叫" width="120">
+          <template #default="{ row }">
+            <span class="font-bold text-bridge-blue">{{ suitToEmoji(row.rebid) }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column prop="points" label="点力范围" width="120">
+          <template #default="{ row }">
+            <el-tag :type="getPointTagType(row.points)" effect="plain">{{ row.points }}</el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column prop="description" label="说明">
+          <template #default="{ row }">
+            <span>{{ suitToEmoji(row.description) }}</span>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
+
+    <!-- 1C—1S—1NT后应叫方的再叫（主表格） -->
+    <div class="mb-8">
+      <h3 class="bridge-subtitle">1♣️—1♠️—1NT 后应叫方的再叫</h3>
+      <h5>（1NT=12—14点，可能有4张H，不保证其他花色止张）</h5>
+      <el-table :data="oneClubOneSpadeOneNTRebid" style="width: 100%" border>
+        <el-table-column prop="rebid" label="再叫" width="120">
+          <template #default="{ row }">
+            <span class="font-bold text-bridge-blue">{{ suitToEmoji(row.rebid) }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column prop="points" label="点力范围" width="120">
+          <template #default="{ row }">
+            <el-tag :type="getPointTagType(row.points)" effect="plain">{{ row.points }}</el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column prop="description" label="说明">
+          <template #default="{ row }">
+            <span>{{ suitToEmoji(row.description) }}</span>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
+
+    <!-- 1C—1S—1NT-2C-2D后应叫方的再叫 -->
+    <div class="mb-8">
+      <h3 class="bridge-subtitle">1♣️—1♠️—1NT—2♣️—2♦️ 后应叫方的再叫</h3>      
+      <el-table :data="oneClubOneSpadeOneNTTwoClubTwoDiamondRebid" style="width: 100%" border>
+        <el-table-column prop="rebid" label="再叫" width="120">
+          <template #default="{ row }">
+            <span class="font-bold text-bridge-blue">{{ suitToEmoji(row.rebid) }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column prop="points" label="点力范围" width="120">
+          <template #default="{ row }">
+            <el-tag :type="getPointTagType(row.points)" effect="plain">{{ row.points }}</el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column prop="description" label="说明">
+          <template #default="{ row }">
+            <span>{{ suitToEmoji(row.description) }}</span>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
+
+    <!-- 1C—1S—1NT—2D后再叫 -->
+    <div class="mb-8">
+      <h4 class="bridge-subtitle">1♣️—1♠️—1NT—2♦️ 后开叫方的再叫</h4>
+      <h5>(2♦️=13点以上，重询斯台曼，逼局)</h5>
+      <el-table :data="oneClubOneSpadeOneNTTwoDiamondRebid" style="width: 100%" border>
+        <el-table-column prop="rebid" label="再叫" width="120">
+          <template #default="{ row }">
+            <span class="font-bold text-bridge-blue">{{ suitToEmoji(row.rebid) }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column prop="points" label="点力范围" width="120">
+          <template #default="{ row }">
+            <el-tag :type="getPointTagType(row.points)" effect="plain">{{ row.points }}</el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column prop="description" label="说明">
+          <template #default="{ row }">
+            <span>{{ suitToEmoji(row.description) }}</span>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
+
+
     <!-- 三、新低花逼局 -->
     <div class="mb-8">
       <h2 class="bridge-title">四、新低花逼局</h2>
     </div>
     <!-- 新低花逼局体系 1C—1H—2C—2D—? -->
     <div class="mb-8">
-      <h3 class="bridge-subtitle">1♣️—1♥️—2♣️—2♦️（新低花逼局，与♦️无关）</h3>
+      <h3 class="bridge-subtitle">1♣️—1♥️—2♣️—2♦️</h3>
+      <h5>（12点以上，新低花逼局，与♦️无关）</h5>
       <el-table :data="oneClubOneHeartTwoClubTwoDiamondRebid" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -229,7 +594,8 @@
 
     <!-- 新低花逼局体系 1C—1S—2C—2D—? -->
     <div class="mb-8">
-      <h3 class="bridge-subtitle">1♣️—1♠️—2♣️—2♦️（新低花逼局，与♦️无关）</h3>
+      <h3 class="bridge-subtitle">1♣️—1♠️—2♣️—2♦️</h3>
+      <h5>（12点以上，新低花逼局，与♦️无关）</h5>
       <el-table :data="oneClubOneSpadeTwoClubTwoDiamondRebid" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -251,11 +617,12 @@
 
     <!-- 五、1C—1NT后开叫方的再叫 -->
     <div class="mb-8">
-      <h2 class="bridge-title">五、1♣️—1NT后开叫方的再叫</h2>
+      <h2 class="bridge-title">五、1♣️—1NT应叫后</h2>
     </div>
     <!-- 1C—1NT后开叫方的再叫体系 -->
     <div class="mb-8">
       <h3 class="bridge-subtitle">1♣️—1NT 后开叫方的再叫</h3>
+      <h5>（1NT=6—10点，没有4张高花，但可能有4~5张C）</h5>
       <el-table :data="oneClubOneNTRebid" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -277,11 +644,12 @@
 
     <!-- 六、低花反加叫 -->
     <div class="mb-8">
-      <h2 class="bridge-title">六、低花繁加叫</h2>
+      <h2 class="bridge-title">六、低花反加叫</h2>
     </div>
     <!-- 1C—2C后开叫方的再叫体系 -->
     <div class="mb-8">
       <h3 class="bridge-subtitle">1♣️—2♣️ 后开叫方的再叫</h3>
+      <h5>（2♣️=10点以上，4张以上C，低花反加叫，逼叫）</h5>
       <el-table :data="oneClubTwoClubRebidFull" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -304,6 +672,7 @@
     <!-- 1C—2C—2D后应叫方的再叫体系 -->
     <div class="mb-8">
       <h4 class="bridge-subtitle">1♣️—2♣️—2♦️ 后应叫方的再叫</h4>
+      <h5>（2♦️=12—21点，5张♣️＋4张♦️；非均型）</h5>
       <el-table :data="oneClubTwoClubTwoDiamondRebidFull" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -326,6 +695,7 @@
     <!-- 1C—2C—2H后应叫方的再叫体系 -->
     <div class="mb-8">
       <h4 class="bridge-subtitle">1♣️—2♣️—2♥️ 后应叫方的再叫</h4>
+      <h5>（2♥️=12—21点，5张♣️＋4张♥️；或4-4-1-4牌型）</h5>
       <el-table :data="oneClubTwoClubTwoHeartRebidFull" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -348,6 +718,7 @@
     <!-- 1C—2C—2S后应叫方的再叫体系 -->
     <div class="mb-8">
       <h4 class="bridge-subtitle">1♣️—2♣️—2♠️ 后应叫方的再叫</h4>
+      <h5>（2♠️=12—21点，5张♣️＋4张♠️；非均型）</h5>
       <el-table :data="oneClubTwoClubTwoSpadeRebidFull" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -370,6 +741,7 @@
     <!-- 1C—2C—2NT后应叫方的再叫体系 -->
     <div class="mb-8">
       <h4 class="bridge-subtitle">1♣️—2♣️—2NT 后应叫方的再叫</h4>
+      <h5>（2NT=12—14点，或18—19点；均型，可能有4张高花）</h5>
       <el-table :data="oneClubTwoClubTwoNTRebidFull" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -395,7 +767,8 @@
     </div>
     <!-- 1C—2D后开叫方的再叫体系 -->
     <div class="mb-8">
-      <h3 class="bridge-subtitle">1♣️—2♦️ 后开叫方的再叫（2♦️=4-6点，6张以上♦️，阻击叫）</h3>
+      <h3 class="bridge-subtitle">1♣️—2♦️ 后开叫方的再叫</h3>
+      <h5>（2♦️=4-6点，6张以上♦️，阻击叫）</h5>
       <el-table :data="oneClubTwoDiamondRebid" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -417,7 +790,8 @@
 
     <!-- 1C—2D—2NT后应叫方的再叫 -->
     <div class="mb-8">
-      <h4 class="bridge-subtitle">1♣️—2♦️—2NT 后应叫方的再叫（2NT=15-21点，问单缺；2张以上♦️）</h4>
+      <h4 class="bridge-subtitle">1♣️—2♦️—2NT 后应叫方的再叫</h4>
+      <h5>（2NT=15-21点，问单缺；2张以上♦️）</h5>
       <el-table :data="oneClubTwoDiamondTwoNTRebid" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -439,7 +813,8 @@
 
     <!-- 1C—2H后开叫方的再叫体系 -->
     <div class="mb-8">
-      <h3 class="bridge-subtitle">1♣️—2♥️ 后开叫方的再叫（2♥️=4-6点，6张以上♥️，阻击叫）</h3>
+      <h3 class="bridge-subtitle">1♣️—2♥️ 后开叫方的再叫</h3>
+      <h5>（2♥️=4-6点，6张以上♥️，阻击叫）</h5>
       <el-table :data="oneClubTwoHeartRebid" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -461,7 +836,8 @@
 
     <!-- 1C—2H—2NT后应叫方的再叫 -->
     <div class="mb-8">
-      <h4 class="bridge-subtitle">1♣️—2♥️—2NT 后应叫方的再叫（2NT=15-21点，问单缺；2张以上♥️）</h4>
+      <h4 class="bridge-subtitle">1♣️—2♥️—2NT 后应叫方的再叫</h4>
+      <h5>（2NT=15-21点，问单缺；2张以上♥️）</h5>
       <el-table :data="oneClubTwoHeartTwoNTRebid" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -483,7 +859,8 @@
 
     <!-- 1C—2S后开叫方的再叫体系 -->
     <div class="mb-8">
-      <h3 class="bridge-subtitle">1♣️—2♠️ 后开叫方的再叫（2♠️=4-6点，6张以上♠️，阻击叫）</h3>
+      <h3 class="bridge-subtitle">1♣️—2♠️ 后开叫方的再叫</h3>
+      <h5>（2♠️=4-6点，6张以上♠️，阻击叫）</h5>
       <el-table :data="oneClubTwoSpadeRebid" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -505,7 +882,8 @@
 
     <!-- 1C—2S—2NT后应叫方的再叫 -->
     <div class="mb-8">
-      <h4 class="bridge-subtitle">1♣️—2♠️—2NT 后应叫方的再叫（2NT=15-21点，问单缺；2张以上♠️）</h4>
+      <h4 class="bridge-subtitle">1♣️—2♠️—2NT 后应叫方的再叫</h4>
+      <h5>（2NT=15-21点，问单缺；2张以上♠️）</h5>
       <el-table :data="oneClubTwoSpadeTwoNTRebid" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -527,7 +905,8 @@
 
     <!-- 1C—2NT后开叫方的再叫体系 -->
     <div class="mb-8">
-      <h3 class="bridge-subtitle">1♣️—2NT 后开叫方的再叫（2NT=11-12点，无4张M和5张C，邀叫）</h3>
+      <h3 class="bridge-subtitle">1♣️—2NT 后开叫方的再叫）</h3>
+      <h5>（2NT=11-12点，无4张M和5张♣️，邀叫</h5>
       <el-table :data="oneClubTwoNTRebidNew" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -549,7 +928,8 @@
 
     <!-- 1C—3C后开叫方的再叫体系 -->
     <div class="mb-8">
-      <h3 class="bridge-subtitle">1♣️—3♣️ 后开叫方的再叫（3♣️=4-8点，5张以上♣️，阻击叫）</h3>
+      <h3 class="bridge-subtitle">1♣️—3♣️ 后开叫方的再叫</h3>
+      <h5>（3♣️=4-8点，5张以上♣️，阻击叫）</h5>
       <el-table :data="oneClubThreeClubRebid" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -571,7 +951,8 @@
 
     <!-- 1C—3D后开叫方的再叫体系（斯普林特） -->
     <div class="mb-8">
-      <h3 class="bridge-subtitle">1♣️—3♦️ 后开叫方的再叫（3♦️=12-15点，5张以上♣️，♦️单缺，斯普林特）</h3>
+      <h3 class="bridge-subtitle">1♣️—3♦️ 后开叫方的再叫</h3>
+      <h5>（3♦️=12-15点，5张以上♣️，♦️单缺，斯普林特）</h5>
       <el-table :data="oneClubThreeDiamondRebid" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -593,7 +974,8 @@
 
     <!-- 1C—3H后开叫方的再叫体系（斯普林特） -->
     <div class="mb-8">
-      <h3 class="bridge-subtitle">1♣️—3♥️ 后开叫方的再叫（3♥️=12-15点，5张以上♣️，♥️单缺，斯普林特）</h3>
+      <h3 class="bridge-subtitle">1♣️—3♥️ 后开叫方的再叫</h3>
+      <h5>（3♥️=12-15点，5张以上♣️，♥️单缺，斯普林特）</h5>
       <el-table :data="oneClubThreeHeartRebid" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -615,7 +997,8 @@
 
     <!-- 1C—3S后开叫方的再叫体系（斯普林特） -->
     <div class="mb-8">
-      <h3 class="bridge-subtitle">1♣️—3♠️ 后开叫方的再叫（3♠️=12-15点，5张以上♣️，♠️单缺，斯普林特）</h3>
+      <h3 class="bridge-subtitle">1♣️—3♠️ 后开叫方的再叫</h3>
+      <h5>（3♠️=12-15点，5张以上♣️，♠️单缺，斯普林特）</h5>
       <el-table :data="oneClubThreeSpadeRebid" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -642,7 +1025,8 @@
 
     <!-- 1C—1H—2D后应叫方的再叫 -->
     <div class="mb-8">
-      <h3 class="bridge-subtitle">1♣️—1♥️—2♦️ 后应叫方的再叫（2♦️=逆叫，16-21点，5张以上♣️＋4张♦️）</h3>
+      <h3 class="bridge-subtitle">1♣️—1♥️—2♦️ 后应叫方的再叫</h3>
+      <h5>（2♦️=逆叫，16-21点，5张以上♣️＋4张♦️）</h5>
       <el-table :data="oneClubOneHeartTwoDiamondResponses" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -664,7 +1048,8 @@
 
     <!-- 1C—1H—2D—2S后开叫方的再叫 -->
     <div class="mb-8">
-      <h4 class="bridge-subtitle">1♣️—1♥️—2♦️—2♠️ 后开叫方的再叫（2♠️=6点以上，可能是弱牌，逼叫）</h4>
+      <h4 class="bridge-subtitle">1♣️—1♥️—2♦️—2♠️ 后开叫方的再叫</h4>
+      <h5>（2♠️=6点以上，可能是弱牌，逼叫）</h5>
       <el-table :data="oneClubOneHeartTwoDiamondTwoSpadeRebid" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -686,7 +1071,8 @@
 
     <!-- 1C—1S—2D后应叫方的再叫 -->
     <div class="mb-8">
-      <h3 class="bridge-subtitle">1♣️—1♠️—2♦️ 后应叫方的再叫（2♦️=逆叫，16-21点，5张以上♣️＋4张♦️）</h3>
+      <h3 class="bridge-subtitle">1♣️—1♠️—2♦️ 后应叫方的再叫</h3>
+      <h5>（2♦️=逆叫，16-21点，5张以上♣️＋4张♦️）</h5>
       <el-table :data="oneClubOneSpadeTwoDiamondResponses" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -708,7 +1094,8 @@
 
     <!-- 1C—1S—2D—2H后开叫方的再叫 -->
     <div class="mb-8">
-      <h4 class="bridge-subtitle">1♣️—1♠️—2♦️—2♥️ 后开叫方的再叫（2♥️=6点以上，可能是弱牌，逼叫）</h4>
+      <h4 class="bridge-subtitle">1♣️—1♠️—2♦️—2♥️ 后开叫方的再叫</h4>
+      <h5>（2♥️=6点以上，可能是弱牌，逼叫）</h5>
       <el-table :data="oneClubOneSpadeTwoDiamondTwoHeartRebid" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -752,7 +1139,8 @@
 
     <!-- 1C—1S—2H—2NT后开叫方的再叫 -->
     <div class="mb-8">
-      <h4 class="bridge-subtitle">1♣️—1♠️—2♥️—2NT 后开叫方的再叫（2NT≥6点，不保证♦️止张，可能是弱牌）</h4>
+      <h4 class="bridge-subtitle">1♣️—1♠️—2♥️—2NT 后开叫方的再叫</h4>
+      <h5>（2NT≥6点，不保证♦️止张，可能是弱牌）</h5>
       <el-table :data="oneClubOneSpadeTwoHeartTwoNTRebid" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -774,7 +1162,8 @@
 
     <!-- 1C—1NT—2H后应叫方的再叫 -->
     <div class="mb-8">
-      <h3 class="bridge-subtitle">1♣️—1NT—2♥️ 后应叫方的再叫（2♥️=逆叫，16-21点，5张以上♣️＋4张以上♥️）</h3>
+      <h3 class="bridge-subtitle">1♣️—1NT—2♥️ 后应叫方的再叫</h3>
+      <h5>（2♥️=逆叫，16-21点，5张以上♣️＋4张以上♥️）</h5>
       <el-table :data="oneClubOneNTTwoHeartResponses" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -796,7 +1185,8 @@
 
     <!-- 1C—1NT—2S后应叫方的再叫 -->
     <div class="mb-8">
-      <h3 class="bridge-subtitle">1♣️—1NT—2♠️ 后应叫方的再叫（2♠️=逆叫，16-21点，5张以上♣️＋4张以上♠️）</h3>
+      <h3 class="bridge-subtitle">1♣️—1NT—2♠️ 后应叫方的再叫</h3>
+      <h5>（2♠️=逆叫，16-21点，5张以上♣️＋4张以上♠️）</h5>
       <el-table :data="oneClubOneNTTwoSpadeResponses" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -823,7 +1213,8 @@
 
     <!-- 1C—1D—2H后应叫方的再叫 -->
     <div class="mb-8">
-      <h3 class="bridge-subtitle">1♣️—1♦️—2♥️ 后应叫方的再叫（跳叫2♥️=18-21点，一般5-4以上套）</h3>
+      <h3 class="bridge-subtitle">1♣️—1♦️—2♥️ 后应叫方的再叫</h3>
+      <h5>（跳叫2♥️=18-21点，一般5-4以上套）</h5>
       <el-table :data="oneClubOneDiamondTwoHeartJumpResponses" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -845,7 +1236,8 @@
 
     <!-- 1C—1D—2S后应叫方的再叫 -->
     <div class="mb-8">
-      <h3 class="bridge-subtitle">1♣️—1♦️—2♠️ 后应叫方的再叫（跳叫2♠️=18-21点，一般5-4以上套）</h3>
+      <h3 class="bridge-subtitle">1♣️—1♦️—2♠️ 后应叫方的再叫</h3>
+      <h5>（跳叫2♠️=18-21点，一般5-4以上套）</h5>
       <el-table :data="oneClubOneDiamondTwoSpadeJumpResponses" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -867,7 +1259,8 @@
 
     <!-- 1C—1H—2S后应叫方的再叫 -->
     <div class="mb-8">
-      <h3 class="bridge-subtitle">1♣️—1♥️—2♠️ 后应叫方的再叫（跳叫2♠️=18-21点，一般5-4以上套）</h3>
+      <h3 class="bridge-subtitle">1♣️—1♥️—2♠️ 后应叫方的再叫</h3>
+      <h5>（跳叫2♠️=18-21点，一般5-4以上套）</h5>
       <el-table :data="oneClubOneHeartTwoSpadeJumpResponses" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -889,7 +1282,8 @@
 
     <!-- 1C—1D—2NT后应叫方的再叫 -->
     <div class="mb-8">
-      <h3 class="bridge-subtitle">1♣️—1♦️—2NT 后应叫方的再叫（跳叫2NT=18-19点，可能有4张M）</h3>
+      <h3 class="bridge-subtitle">1♣️—1♦️—2NT 后应叫方的再叫</h3>
+      <h5>（跳叫2NT=18-19点，可能有4张M）</h5>
       <el-table :data="oneClubOneDiamondTwoNTJumpResponses" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -911,7 +1305,8 @@
 
     <!-- 1C—1H—2NT后应叫方的再叫 -->
     <div class="mb-8">
-      <h3 class="bridge-subtitle">1♣️—1♥️—2NT 后应叫方的再叫（跳叫2NT=18-19点，可能有4张♠️）</h3>
+      <h3 class="bridge-subtitle">1♣️—1♥️—2NT 后应叫方的再叫</h3>
+      <h5>（跳叫2NT=18-19点，可能有4张♠️）</h5>
       <el-table :data="oneClubOneHeartTwoNTJumpResponses" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -933,7 +1328,8 @@
 
     <!-- 1C—1H—2NT—3C后开叫方的再叫 -->
     <div class="mb-8">
-      <h4 class="bridge-subtitle">1♣️—1♥️—2NT—3♣️ 后开叫方的再叫（3♣️=6点以上，重询高花）</h4>
+      <h4 class="bridge-subtitle">1♣️—1♥️—2NT—3♣️ 后开叫方的再叫</h4>
+      <h5>（3♣️=6点以上，重询高花）</h5>
       <el-table :data="oneClubOneHeartTwoNTThreeClubRebid" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -955,7 +1351,8 @@
 
     <!-- 1C—1S—2NT后应叫方的再叫 -->
     <div class="mb-8">
-      <h3 class="bridge-subtitle">1♣️—1♠️—2NT 后应叫方的再叫（跳叫2NT=18-19点，可能有4张♥️）</h3>
+      <h3 class="bridge-subtitle">1♣️—1♠️—2NT 后应叫方的再叫</h3>
+      <h5>（跳叫2NT=18-19点，可能有4张♥️）</h5>
       <el-table :data="oneClubOneSpadeTwoNTJumpResponses" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -977,7 +1374,8 @@
 
     <!-- 1C—1S—2NT—3C后开叫方的再叫 -->
     <div class="mb-8">
-      <h4 class="bridge-subtitle">1♣️—1♠️—2NT—3♣️ 后开叫方的再叫（3♣️=6点以上，重询高花）</h4>
+      <h4 class="bridge-subtitle">1♣️—1♠️—2NT—3♣️ 后开叫方的再叫</h4>
+      <h5>（3♣️=6点以上，重询高花）</h5>
       <el-table :data="oneClubOneSpadeTwoNTThreeClubRebid" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -999,12 +1397,13 @@
 
     <!-- 跳叫原花色3C体系 -->
     <div class="mb-8">
-      <h3 class="bridge-subtitle">跳叫原花色3♣️体系（16-18点，6张以上套，邀叫）</h3>
+      <h3 class="bridge-subtitle">跳叫原花色3♣️体系</h3>
     </div>
 
     <!-- 1C—1D—3C后应叫方的再叫 -->
     <div class="mb-8">
-      <h4 class="bridge-subtitle">1♣️—1♦️—3♣️ 后应叫方的再叫（跳叫原花色=16-18点，6张以上套，邀叫）</h4>
+      <h4 class="bridge-subtitle">1♣️—1♦️—3♣️ 后应叫方的再叫</h4>
+      <h5>（跳叫原花色=16-18点，6张以上套，邀叫）</h5>
       <el-table :data="oneClubOneDiamondThreeClubResponses" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -1026,7 +1425,8 @@
 
     <!-- 1C—1H—3C后应叫方的再叫 -->
     <div class="mb-8">
-      <h4 class="bridge-subtitle">1♣️—1♥️—3♣️ 后应叫方的再叫（跳叫原花色=16-18点，6张以上套，无4张高花）</h4>
+      <h4 class="bridge-subtitle">1♣️—1♥️—3♣️ 后应叫方的再叫</h4>
+      <h5>（跳叫原花色=16-18点，6张以上套，无4张高花）</h5>
       <el-table :data="oneClubOneHeartThreeClubResponses" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -1048,7 +1448,8 @@
 
     <!-- 1C—1S—3C后应叫方的再叫 -->
     <div class="mb-8">
-      <h4 class="bridge-subtitle">1♣️—1♠️—3♣️ 后应叫方的再叫（跳叫原花色=16-18点，6张以上套，无4张高花）</h4>
+      <h4 class="bridge-subtitle">1♣️—1♠️—3♣️ 后应叫方的再叫</h4>
+      <h5>（跳叫原花色=16-18点，6张以上套，无4张高花）</h5>
       <el-table :data="oneClubOneSpadeThreeClubResponses" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -1070,7 +1471,8 @@
 
     <!-- 1C—1NT—3C后应叫方的再叫 -->
     <div class="mb-8">
-      <h4 class="bridge-subtitle">1♣️—1NT—3♣️ 后应叫方的再叫（跳叫原花色=16-18点，6张以上套，无4张高花）</h4>
+      <h4 class="bridge-subtitle">1♣️—1NT—3♣️ 后应叫方的再叫</h4>
+      <h5>（跳叫原花色=16-18点，6张以上套，无4张高花）</h5>
       <el-table :data="oneClubOneNTThreeClubResponses" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -1097,7 +1499,8 @@
 
     <!-- 1C—1D—3D后应叫方的再叫 -->
     <div class="mb-8">
-      <h4 class="bridge-subtitle">1♣️—1♦️—3♦️ 后应叫方的再叫（跳3♦️=16-18点，4张以上♦️，邀叫）</h4>
+      <h4 class="bridge-subtitle">1♣️—1♦️—3♦️ 后应叫方的再叫</h4>
+      <h5>（跳3♦️=16-18点，4张以上♦️，邀叫）</h5>
       <el-table :data="oneClubOneDiamondThreeDiamondResponses" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -1119,7 +1522,8 @@
 
     <!-- 1C—1H—3H后应叫方的再叫 -->
     <div class="mb-8">
-      <h4 class="bridge-subtitle">1♣️—1♥️—3♥️ 后应叫方的再叫（跳3♥️=15-17点，4张♥️支持，邀叫）</h4>
+      <h4 class="bridge-subtitle">1♣️—1♥️—3♥️ 后应叫方的再叫</h4>
+      <h5>（跳3♥️=15-17点，4张♥️支持，邀叫）</h5>
       <el-table :data="oneClubOneHeartThreeHeartResponses" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -1141,7 +1545,8 @@
 
     <!-- 1C—1S—3S后应叫方的再叫 -->
     <div class="mb-8">
-      <h4 class="bridge-subtitle">1♣️—1♠️—3♠️ 后应叫方的再叫（跳3♠️=15-17点，4张♠️支持，邀叫）</h4>
+      <h4 class="bridge-subtitle">1♣️—1♠️—3♠️ 后应叫方的再叫</h4>
+      <h5>（跳3♠️=15-17点，4张♠️支持，邀叫）</h5>
       <el-table :data="oneClubOneSpadeThreeSpadeResponses" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -1181,7 +1586,8 @@
           </ul>
         </div>
       </div>
-      <h4 class="bridge-subtitle">1♣️—(×)—? （敌方×=11点以上，一般有双高花）</h4>
+      <h4 class="bridge-subtitle">1♣️—(×)—? </h4>
+      <h5>（敌方×=11点以上，一般有双高花）</h5>
       <el-table :data="oneClubDoubleResponses" style="width: 100%" border>
         <el-table-column prop="bid" label="应叫" width="120">
           <template #default="{ row }">
@@ -1308,7 +1714,8 @@
     <!-- 1C被敌方1NT争叫 -->
     <div class="mb-8">
       <h3 class="bridge-subtitle">3. 1♣️被敌方1NT争叫</h3>
-      <h4 class="bridge-subtitle">1♣️—(1NT)—? （敌方1NT=15-18点，均型牌）</h4>
+      <h4 class="bridge-subtitle">1♣️—(1NT)—? </h4>
+      <h5>（敌方1NT=15-18点，均型牌）</h5>
       <el-table :data="oneClubOneNTOvercallResponses" style="width: 100%" border>
         <el-table-column prop="bid" label="应叫" width="120">
           <template #default="{ row }">
@@ -1331,7 +1738,8 @@
     <!-- 1C在敌方迈克尔斯扣叫后 -->
     <div class="mb-8">
       <h3 class="bridge-subtitle">4. 1♣️在敌方迈克尔斯扣叫后</h3>
-      <h4 class="bridge-subtitle">1♣️—(2♣️)—? （敌方2♣️=5张♥️+5张♠️）</h4>
+      <h4 class="bridge-subtitle">1♣️—(2♣️)—? </h4>
+      <h5>（敌方2♣️=5张♥️+5张♠️）</h5>
       <el-table :data="oneClubMichaelsCueResponses" style="width: 100%" border>
         <el-table-column prop="bid" label="应叫" width="120">
           <template #default="{ row }">
@@ -1354,7 +1762,8 @@
     <!-- 1C在敌方不寻常2NT争叫后 -->
     <div class="mb-8">
       <h3 class="bridge-subtitle">5. 1♣️在敌方不寻常2NT争叫后</h3>
-      <h4 class="bridge-subtitle">1♣️—(2NT)—? （敌方2NT=5张♦️+5张♥️）</h4>
+      <h4 class="bridge-subtitle">1♣️—(2NT)—? </h4>
+      <h5>（敌方2NT=5张♦️+5张♥️）</h5>
       <el-table :data="oneClubUnusualTwoNTResponses" style="width: 100%" border>
         <el-table-column prop="bid" label="应叫" width="120">
           <template #default="{ row }">
@@ -1471,17 +1880,172 @@ const oneClubOneDiamondOneSpadeRebid = ref([
   { rebid: '4S', points: '12-14点', description: '5张D↑＋4张S，止叫' },
 ])
 
-const oneClubOneMajorRebid = ref([
-  { rebid: '1S', points: '12-17点', description: '4张S，均型牌' },
-  { rebid: '1NT', points: '12-14点', description: '均型牌，开叫方无4张高花' },
-  { rebid: '2C/2D', points: '15-17点', description: '均型牌，开叫方有4张C/D' },
-  { rebid: '2H/2S', points: '15-17点', description: '开叫方有4张H/S' },
-  { rebid: '2NT', points: '18-19点', description: '均型牌，邀请满贯' },
-  { rebid: '3NT', points: '20-21点', description: '均型牌，定约' },
-  { rebid: '3C/3D', points: '15-17点', description: '5张以上C/D套，进攻性' },
-  { rebid: '3H/3S', points: '15-17点', description: '5张以上H/S套，进攻性' },
-  { rebid: '4C/4D', points: '18-21点', description: '6张以上C/D套，进攻性' },
-  { rebid: '4H/4S', points: '18-21点', description: '6张以上H/S套，进攻性' },
+//1C——1D——2C——？（2C=12—15点，6张以上C）
+const oneClubOneDiamondTwoClubRebid = ref([
+  { rebid: 'Pass', points: '6-9点', description: '没有成局的可能' },
+  { rebid: '2D', points: '8-9点', description: '6张以上D，不逼叫' },
+  { rebid: '2H', points: '10点以上', description: 'H有止张，邀叫3NT' },
+  { rebid: '2S', points: '10点以上', description: 'S有止张，邀叫3NT' },
+  { rebid: '2NT', points: '11-12点', description: '均型，高花有止张，邀叫' },
+  { rebid: '3C', points: '9-11点', description: '3张以上C，邀叫' },
+  { rebid: '3D', points: '11-12点', description: '6张以上D，邀叫' },
+  { rebid: '3H', points: '12点以上', description: '4张以上C，SPL，逼局' },
+  { rebid: '3S', points: '12点以上', description: '4张以上C，SPL，逼局' },
+  { rebid: '3NT', points: '13-15点', description: '止叫' },
+  { rebid: '4C', points: '12点以上', description: '3张以上C，逼局' }
+])
+
+//1♣️—1♦️—2♦️（12—15点，5张以上♣️＋4张♦️） 后应叫方的再叫
+const oneClubOneDiamondTwoDiamondRebid = ref([
+  { rebid: 'Pass', points: '6-9点', description: '没有成局的可能' },
+  { rebid: '2H', points: '10点以上', description: 'H有止张，邀叫3NT' },
+  { rebid: '2S', points: '10点以上', description: 'S有止张，邀叫3NT' },
+  { rebid: '2NT', points: '11-12点', description: '均型，高花有止张，邀叫' },
+  { rebid: '3C', points: '11-12点', description: '4张以上C，邀叫' },
+  { rebid: '3D', points: '11-12点', description: '5张以上D，邀叫' },
+  { rebid: '3H', points: '12点以上', description: '4张以上D，SPL，逼局' },
+  { rebid: '3S', points: '12点以上', description: '4张以上D，SPL，逼局' },
+  { rebid: '3NT', points: '13-17点', description: '止叫' }
+])
+
+//1♣️—1♥️ 后开叫方的再叫
+const oneClubOneHeartRebidFull = ref([
+  { rebid: '1S', points: '12-17点', description: '5张C＋4张S，不逼叫' },
+  { rebid: '1NT', points: '12-14点', description: '均型，无4张高花，不保证其他花色止张，不逼叫' },
+  { rebid: '2C', points: '12-15点', description: '6张以上C，没有4张高花，不逼叫' },
+  { rebid: '2D', points: '16-21点', description: '5张以上C＋4张D，逆叫，逼叫' },
+  { rebid: '2H', points: '12-15点', description: '4张H，或3张H有单缺，不逼叫' },
+  { rebid: '2S', points: '18-21点', description: '好的5张以上C＋4张以上S；跳叫新花逼局' },
+  { rebid: '2NT', points: '18-19点', description: '跳叫2NT，可能有4张S，不逼叫' },
+  { rebid: '3C', points: '16-18点', description: '6张以上C，无4张高花，跳叫原花邀叫' },
+  { rebid: '3D/3S', points: '18-21点', description: '4张H，所叫花色D/S单缺，SPL，逼局' },
+  { rebid: '3H', points: '15-17点', description: '4张H，邀叫' },
+  { rebid: '3NT', points: '16-18点', description: '坚固的6张以上C，未叫花色有止张' },
+  { rebid: '4C', points: '16-21点', description: '6张以上C＋4张H，逼局' },
+  { rebid: '4H', points: '18-21点', description: '4张H' }
+])
+
+//1♣️—1♥️—1♠️（12—17点，5张♣️＋4张♠️） 后应叫方的再叫
+const oneClubOneHeartOneSpadeRebid = ref([
+  { rebid: 'Pass', points: '6-7点', description: '3~4张S，愿意打4-3配合' },
+  { rebid: '1NT', points: '6-10点', description: '没有4张S，不逼叫' },
+  { rebid: '2C', points: '6-9点', description: '4张以上C，无4张S，不逼叫' },
+  { rebid: '2D', points: '12点以上', description: '第四花色逼局；与D无关' },
+  { rebid: '2H', points: '6-9点', description: '6张H，不逼叫' },
+  { rebid: '2S', points: '8-9点', description: '4张S，不逼叫' },
+  { rebid: '2NT', points: '11-12点', description: '均型，高花无配合，邀叫' },
+  { rebid: '3C', points: '10-11点', description: '4张以上C，邀叫' },
+  { rebid: '3D', points: '10-11点', description: '5张H＋5张D，邀叫' },
+  { rebid: '3H', points: '10-11点', description: '6张以上H，邀叫' },
+  { rebid: '3S', points: '10-11点', description: '4张S，邀叫' },
+  { rebid: '3NT', points: '13-15点', description: '止叫' },
+  { rebid: '4H', points: '10-12点', description: '7张以上H，止叫' },
+  { rebid: '4S', points: '12-15点', description: '4张S，止叫' }
+])
+
+//1♣️—1♥️—2♣️（12—15点，6张以上C） 后应叫方的再叫
+const oneClubOneHeartTwoClubRebid = ref([
+  { rebid: 'Pass', points: '6-9点', description: '没有成局的可能' },
+  { rebid: '2D', points: '12点以上', description: '新低花逼局，与D无关' },
+  { rebid: '2H', points: '6-9点', description: '6张以上H，不逼叫' },
+  { rebid: '2S', points: '10-12点', description: '5张H＋4张S，逼叫' },
+  { rebid: '2NT', points: '11-12点', description: '均型牌，邀叫' },
+  { rebid: '3C', points: '9-11点', description: '3张以上C，邀叫' },
+  { rebid: '3D', points: '10-11点', description: '5张H＋5张D，邀叫' },
+  { rebid: '3H', points: '10-11点', description: '6张以上H，邀叫' },
+  { rebid: '3S', points: '12点以上', description: '4张以上C，SPL，逼局' },
+  { rebid: '3NT', points: '12-17点', description: '止叫' },
+  { rebid: '4C', points: '15点以上', description: '3张以上C，满贯兴趣' },
+  { rebid: '4D', points: '12点以上', description: '4张以上C，SPL，逼局' }
+])
+
+//1♣️—1♥️—2♥️（12—15点，4张♥️或3张♥️有单缺） 后应叫方的再叫
+const oneClubOneHeartTwoHeartRebid = ref([
+  { rebid: 'Pass', points: '6-9点', description: '没有成局的可能' },
+  { rebid: '2S', points: '10点以上', description: '5张H↑，3张S↑，帮张邀叫' },
+  { rebid: '2NT', points: '10点以上', description: '重询高花；请同伴描述牌型' },
+  { rebid: '3C', points: '10点以上', description: '5张H↑，3张C↑，帮张邀叫' },
+  { rebid: '3D', points: '10点以上', description: '5张H↑，3张D↑，帮张邀叫' },
+  { rebid: '3H', points: '10-11点', description: '5张以上H，邀叫' },
+  { rebid: '3S', points: '13点以上', description: '5张以上H，SPL，逼局' },
+  { rebid: '3NT', points: '12-15点', description: '通常3-4-3-3牌型，示选' },
+  { rebid: '4C/4D', points: '13点以上', description: '5张以上H，SPL，逼局' },
+  { rebid: '4H', points: '12-15点', description: '5张以上H，止叫' }
+])
+
+//1♣️—1♥️—2♥️-2NT（2NT=10点以上，重询高花） 后应叫方的再叫
+const oneClubOneHeartTwoHeartTwoNTRebid = ref([
+  { rebid: '3C', points: '12-13点', description: '4张H，5张C，逼叫' },
+  { rebid: '3D', points: '12-15点', description: '3张H，5张C，4张D，不逼叫' },
+  { rebid: '3H', points: '12-13点', description: '4张H，不逼叫' },
+  { rebid: '3S', points: '14-15点', description: '4张H，S单缺，逼局' },
+  { rebid: '3NT', points: '14-15点', description: '4张H，均型，4H/3NT示选' },
+  { rebid: '4C', points: '14-15点', description: '4张H，好的5张C，逼局' },
+  { rebid: '4D', points: '14-15点', description: '4张H，D单缺，逼局' },
+  { rebid: '4H', points: '14-15点', description: '4张H，止叫' }
+])
+
+//1D-1S
+const oneClubOneSpadeRebidFull = ref([
+  { rebid: '1NT', points: '12-14点', description: '可能有4张H，不保证其他花色止张' },
+  { rebid: '2C', points: '12-15点', description: '6张以上C，不逼叫' },
+  { rebid: '2D', points: '16-21点', description: '5张以上C＋4张D，逆叫，逼叫' },
+  { rebid: '2H', points: '16-21点', description: '5张以上C＋4张H，逆叫，逼叫' },
+  { rebid: '2S', points: '12-15点', description: '4张S，或3张S有单缺，不逼叫' },
+  { rebid: '2NT', points: '18-19点', description: '均型，可能有4张H，不逼叫' },
+  { rebid: '3C', points: '16-18点', description: '6张以上C，无4张M，跳叫原花邀叫' },
+  { rebid: '3D', points: '18-21点', description: '4张S，D单缺，SPL，逼局' },
+  { rebid: '3H', points: '18-21点', description: '4张S，H单缺，SPL，逼局' },
+  { rebid: '3S', points: '15-17点', description: '4张S，邀叫' },
+  { rebid: '3NT', points: '16-18点', description: '坚固的6张以上C，未叫花色有止张' },
+  { rebid: '4C', points: '16-21点', description: '6张以上C＋4张S，逼局' },
+  { rebid: '4S', points: '18-21点', description: '4张S' }
+])
+
+//1C-1S-2C-? （2C=12—15点，6张以上C）
+const oneClubOneSpadeTwoClubRebid = ref([
+  { rebid: 'Pass', points: '6-9点', description: '没有成局的可能' },
+  { rebid: '2D', points: '12点以上', description: '新低花逼局，与D无关' },
+  { rebid: '2H', points: '6-9点', description: '5张S＋4张H，不逼叫' },
+  { rebid: '2S', points: '6-9点', description: '6张以上S，示弱' },
+  { rebid: '2NT', points: '11-12点', description: '均型牌，邀叫' },
+  { rebid: '3C', points: '9-11点', description: '3张以上C，邀叫' },
+  { rebid: '3D', points: '10-11点', description: '5张S＋5张D，邀叫' },
+  { rebid: '3H', points: '10-11点', description: '5张S＋5张H，邀叫' },
+  { rebid: '3S', points: '10-11点', description: '6张以上S，邀叫' },
+  { rebid: '3NT', points: '12-17点', description: '止叫' },
+  { rebid: '4C', points: '15点以上', description: '3张以上C，满贯兴趣' },
+  { rebid: '4D', points: '12点以上', description: '4张以上C，SPL，逼局' },
+  { rebid: '4H', points: '8-11点', description: '6张S＋5张H，示选' },
+  { rebid: '4S', points: '10-13点', description: '7张以上S，止叫' },
+  { rebid: '5C', points: '10-14点', description: '4张以上C，止叫' }
+])
+
+//1D-1S-2S
+const oneClubOneSpadeTwoSpadeRebid = ref([
+  { rebid: 'Pass', points: '6-9点', description: '没有成局的可能' },
+  { rebid: '2NT', points: '10点以上', description: '重询高花；请同伴描述牌型' },
+  { rebid: '3C', points: '10点以上', description: '5张S↑，3张C↑，帮张邀叫' },
+  { rebid: '3D', points: '10点以上', description: '5张S↑，3张D↑，帮张邀叫' },
+  { rebid: '3H', points: '10点以上', description: '5张S↑，3张H↑，帮张邀叫' },
+  { rebid: '3S', points: '10-11点', description: '5张以上S，邀叫' },
+  { rebid: '3NT', points: '12-15点', description: '通常4-3-3-3牌型，示选' },
+  { rebid: '4C/4D', points: '13点以上', description: '5张以上S，SPL，逼局' },
+  { rebid: '4H', points: '13点以上', description: '5张以上S，SPL，逼局' },
+  { rebid: '4S', points: '12-15点', description: '5张以上S，止叫' }
+])
+
+//1D-1S-2S-2NT
+const oneClubOneSpadeTwoSpadeTwoNTRebid = ref([
+  { rebid: '3C', points: '12-13点', description: '4张S，5张C，逼叫' },
+  { rebid: '3D', points: '12-14点', description: '3张S，5张C，4张D，不逼叫' },
+  { rebid: '3H', points: '12-14点', description: '3张S，5张C，4张H，不逼叫' },
+  { rebid: '3S', points: '12-13点', description: '4张S，不逼叫' },
+  { rebid: '3NT', points: '14-15点', description: '4张S，均型，4S/3NT示选' },
+  { rebid: '4C', points: '14-15点', description: '4张S，好的5张C，逼局' },
+  { rebid: '4D', points: '14-15点', description: '4张S，D单缺，逼局' },
+  { rebid: '4H', points: '14-15点', description: '4张S，H单缺，逼局' },
+  { rebid: '4S', points: '14-15点', description: '4张S，止叫' }
 ])
 
 const oneClubOneDiamondOneNTRebid = ref([
@@ -1500,10 +2064,10 @@ const oneClubOneDiamondOneNTRebid = ref([
 ])
 
 const oneClubOneDiamondOneNTTwoClubRebid = ref([
-  { rebid: '2D', points: '6-9点', description: '5张以上D，示弱止叫' },
+  { rebid: 'Pass', points: '6-9点', description: '5张以上D，示弱止叫' },
   { rebid: '2NT', points: '10-12点', description: '5张D，均型牌，邀叫' },
   { rebid: '3C', points: '10-12点', description: '5张以上D＋5张C，邀叫' },
-  { rebid: '3D', points: '10-12点', description: '好的6张以上D，邀叫' },
+  { rebid: '3D', points: '10-12点', description: '好的6张以上D，邀叫' }
 ])
 
 const oneClubOneDiamondOneNTTwoDiamondRebid = ref([
@@ -1512,6 +2076,79 @@ const oneClubOneDiamondOneNTTwoDiamondRebid = ref([
   { rebid: '2NT', points: '12-14点', description: 'S/H均有止张' },
   { rebid: '3C', points: '12-14点', description: '5张以上C' },
   { rebid: '3D', points: '12-14点', description: '带两大牌的3张D' },
+])
+
+//1♣️—1♥️—1NT 后应叫方的再叫
+const oneClubOneHeartOneNTRebid = ref([
+  { rebid: 'Pass', points: '6-9点', description: '不符合其他叫品' },
+  { rebid: '2C', points: '6-9点', description: '要求同伴叫2D；后续Pass = 5张以上D，示弱' },
+  { rebid: '', points: '10-12点', description: '要求同伴叫2D；后续选择自然叫品，邀叫' },
+  { rebid: '2D', points: '13点以上', description: '多数进局起步叫品，与D无关，逼局' },
+  { rebid: '2H', points: '6-9点', description: '6张以上H，不逼叫' },  
+  { rebid: '2S', points: '13点以上', description: '5张H＋4张S，逼局' },  
+  { rebid: '2NT', points: '6-9点', description: '要求同伴叫3C；后续Pass = 5张以上C，示弱' },
+  { rebid: '', points: '10-12点', description: '要求同伴叫3C；后续叫3D = 5张D＋5张H，邀叫' },  
+  { rebid: '3C', points: '13点以上', description: '5张H＋5张C，逼局' },
+  { rebid: '3D', points: '13点以上', description: '5张H＋5张D，逼局' },
+  { rebid: '3H', points: '13点以上', description: '半坚固的6张以上H，逼局' },  
+  { rebid: '3NT', points: '13-17点', description: '不满足其他进局条件，止叫' },
+  { rebid: '4NT', points: '18-19点', description: '满贯邀叫' }
+])
+
+//1♣️—1♥️—1NT-2♣️-2♦️ 后应叫方的再叫
+const oneClubOneHeartOneNTTwoClubTwoDiamondRebid = ref([
+  { rebid: 'Pass', points: '6-9点', description: '5张以上D' },
+  { rebid: '2H', points: '10-12点', description: '好的5张以上H，邀叫' },
+  { rebid: '2S', points: '10-12点', description: '5张H＋4张S，邀叫' },
+  { rebid: '2NT', points: '10-12点', description: '均型牌，邀叫' },
+  { rebid: '3C/3D', points: '10-12点', description: '5张以上C/D，邀叫' },
+  { rebid: '3H', points: '10-12点', description: '好的6张以上H，邀叫' }
+])
+
+//1♣️—1♥️—1NT-2♦️
+const oneClubOneHeartOneNTTwoDiamondRebid = ref([
+  { rebid: '2H', points: '12-14点', description: '3张H' },
+  { rebid: '2S', points: '12点以上', description: '3张S，3-1-4-5牌型' },
+  { rebid: '2NT', points: '12-14点', description: '没有3张H，均型牌' },
+  { rebid: '3C', points: '12-14点', description: '5张以上C' },
+  { rebid: '3D', points: '12-14点', description: '2-2-4-5牌型' }
+])
+
+//1♣️—1♠️—1NT 后应叫方的再叫
+const oneClubOneSpadeOneNTRebid = ref([
+  { rebid: 'Pass', points: '6-9点', description: '不符合其他叫品' },
+  { rebid: '2C', points: '6-9点', description: '要求同伴叫2D；后续Pass = 5张以上D，示弱' },
+  { rebid: '2D', points: '10-12点', description: '要求同伴叫2D；后续选择自然叫品，邀叫' },
+  { rebid: '2H', points: '13点以上', description: '多数进局起步叫品，与D无关，逼局' },
+  { rebid: '2S', points: '6-9点', description: '5张S＋4张以上H，不逼叫' },
+  { rebid: '2NT', points: '6-9点', description: '6张以上S，不逼叫' },
+  { rebid: '3C/3D', points: '6-9点', description: '要求同伴叫3C；后续Pass = 5张以上C，示弱' },
+  { rebid: '3H', points: '10-12点', description: '要求同伴叫3C；后续叫3D = 5张D＋5张S，邀叫' },
+  { rebid: '3S', points: '13点以上', description: '5张S＋5张C/D，逼局' },
+  { rebid: '3NT', points: '13点以上', description: '5张S＋5张H，逼局' },
+  { rebid: '4NT', points: '13点以上', description: '半坚固的6张以上S，逼局' },
+  { rebid: '4H', points: '13-17点', description: '不满足其他进局条件，止叫' },
+  { rebid: '4S', points: '18-19点', description: '满贯邀叫' }
+])
+
+//1♣️—1♠️—1NT—2♣️—2♦️ 后应叫方的再叫
+const oneClubOneSpadeOneNTTwoClubTwoDiamondRebid = ref([
+  { rebid: 'Pass', points: '6-9点', description: '5张以上D' },
+  { rebid: '2H', points: '10-12点', description: '5张S＋4张H，邀叫' },
+  { rebid: '2S', points: '10-12点', description: '好的5张以上S，邀叫' },
+  { rebid: '2NT', points: '10-12点', description: '均型牌，邀叫' },
+  { rebid: '3C/3D', points: '10-12点', description: '5张以上C/D，邀叫' },
+  { rebid: '3H', points: '10-12点', description: '5张S＋5张H，邀叫' },
+  { rebid: '3S', points: '10-12点', description: '好的6张以上S，邀叫' }
+])
+
+//1♣️—1♠️—1NT-2♦️
+const oneClubOneSpadeOneNTTwoDiamondRebid = ref([
+  { rebid: '2H', points: '12-14点', description: '4张H' },
+  { rebid: '2S', points: '12点以上', description: '3张S' },
+  { rebid: '2NT', points: '12-14点', description: '无4张H，无3张S，均型牌' },
+  { rebid: '3C', points: '12-14点', description: '5张以上C' },
+  { rebid: '3D', points: '12-14点', description: '2-2-4-5牌型' }
 ])
 
 const oneClubOneHeartTwoClubTwoDiamondRebid = ref([
@@ -1553,7 +2190,7 @@ const oneClubTwoClubRebidFull = ref([
   { rebid: '2H', points: '12-21点', description: '5张C＋4张H；或4-4-1-4牌型，非均型，逼叫' },
   { rebid: '2S', points: '12-21点', description: '5张C＋4张S，非均型，逼叫' },
   { rebid: '2NT', points: '12-14点', description: '均型，可以有4张高花，逼叫' },
-  { rebid: '2NT', points: '18-19点', description: '均型，可以有4张高花；应叫人如果叫3NT就叫4NT邀请满贯' },
+  { rebid: '', points: '18-19点', description: '均型，可以有4张高花；应叫人如果叫3NT就叫4NT邀请满贯' },
   { rebid: '3C', points: '12-14点', description: '4张以上C，高花有单缺，不逼叫' },
   { rebid: '3D', points: '14点以上', description: '4张以上C，D单缺，斯普林特，逼局' },
   { rebid: '3H/3S', points: '14点以上', description: '4张以上C，H/S单缺，斯普林特，逼局' },
