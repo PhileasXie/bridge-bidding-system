@@ -133,7 +133,8 @@
 
     <!-- 1C—1D—2D后应叫方的再叫 -->
     <div class="mb-8">
-      <h4 class="bridge-subtitle">1♣️—1♦️—2♦️（12—15点，5张以上♣️＋4张♦️） 后应叫方的再叫</h4>
+      <h4 class="bridge-subtitle">1♣️—1♦️—2♦️ 后应叫方的再叫</h4>
+      <h5>（2♦️12—15点，5张以上♣️＋4张♦️）</h5>
       <el-table :data="oneClubOneDiamondTwoDiamondRebid" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -201,6 +202,7 @@
     <!-- 1C—1H—2C后应叫方的再叫 -->
     <div class="mb-8">
       <h4 class="bridge-subtitle">1♣️—1♥️—2♣️（12—15点，6张以上♣️） 后应叫方的再叫</h4>
+      <h5>（2♣️=12—15点，6张以上♣️）</h5>
       <el-table :data="oneClubOneHeartTwoClubRebid" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
@@ -384,7 +386,7 @@
 
     <!-- 1C—1D—1NT—2C后再叫 -->
     <div class="mb-8">
-      <h4 class="bridge-subtitle">1♣️—1♦️—1NT—2♣️—2♦️ 后再叫</h4>
+      <h4 class="bridge-subtitle">1♣️—1♦️—1NT—2♣️—2♦️后应叫方的再叫</h4>
       <h5>(2♣️=6—12点，重询斯台曼，要求同伴叫2D；示弱或邀叫)</h5>
       <el-table :data="oneClubOneDiamondOneNTTwoClubRebid" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
@@ -2117,18 +2119,18 @@ const oneClubOneHeartOneNTTwoDiamondRebid = ref([
 //1♣️—1♠️—1NT 后应叫方的再叫
 const oneClubOneSpadeOneNTRebid = ref([
   { rebid: 'Pass', points: '6-9点', description: '不符合其他叫品' },
-  { rebid: '2C', points: '6-9点', description: '要求同伴叫2D；后续Pass = 5张以上D，示弱' },
-  { rebid: '2D', points: '10-12点', description: '要求同伴叫2D；后续选择自然叫品，邀叫' },
-  { rebid: '2H', points: '13点以上', description: '多数进局起步叫品，与D无关，逼局' },
-  { rebid: '2S', points: '6-9点', description: '5张S＋4张以上H，不逼叫' },
-  { rebid: '2NT', points: '6-9点', description: '6张以上S，不逼叫' },
-  { rebid: '3C/3D', points: '6-9点', description: '要求同伴叫3C；后续Pass = 5张以上C，示弱' },
-  { rebid: '3H', points: '10-12点', description: '要求同伴叫3C；后续叫3D = 5张D＋5张S，邀叫' },
-  { rebid: '3S', points: '13点以上', description: '5张S＋5张C/D，逼局' },
-  { rebid: '3NT', points: '13点以上', description: '5张S＋5张H，逼局' },
-  { rebid: '4NT', points: '13点以上', description: '半坚固的6张以上S，逼局' },
-  { rebid: '4H', points: '13-17点', description: '不满足其他进局条件，止叫' },
-  { rebid: '4S', points: '18-19点', description: '满贯邀叫' }
+      { rebid: '2♣️', points: '6-9点', description: '要求同伴叫2♦️；后续Pass = 5张以上♦️，示弱' },
+      { rebid: '', points: '10-12点', description: '要求同伴叫2♦️；后续选择自然叫品，邀叫' },
+      { rebid: '2♦️', points: '13点以上', description: '多数进局起步叫品，与D无关，逼局' },
+      { rebid: '2♥️', points: '6-9点', description: '5张♠️＋4张以上♥️，不逼叫' },
+      { rebid: '2♠️', points: '6-9点', description: '6张以上♠️，不逼叫' },
+      { rebid: '2NT', points: '6-9点', description: '要求同伴叫3♣️；后续Pass = 5张以上♣️，示弱' },
+      { rebid: '', points: '10-12点', description: '要求同伴叫3♣️；后续叫3♦️ = 5张♦️＋5张♠️，邀叫' },
+      { rebid: '3♣️/3♦️', points: '13点以上', description: '5张♠️＋5张♣️/♦️，逼局' },
+      { rebid:'3♥️', points:'13点以上', description:'5张♠️＋5张♥️，逼局'},
+      { rebid:'3♠️', points:'13点以上', description:'半坚固的6张以上♠️，逼局'},
+      { rebid:'3NT', points:'13-17点', description:'不满足其他进局条件，止叫'},
+      { rebid:'4NT', points:'18-19点', description:'满贯邀叫'}
 ])
 
 //1♣️—1♠️—1NT—2♣️—2♦️ 后应叫方的再叫
