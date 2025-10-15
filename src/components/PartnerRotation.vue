@@ -68,20 +68,45 @@
             <!-- 比赛结果录入 -->
             <div class="match-result-section">
               <h4 class="result-title mt-4">比赛结果：</h4>
-              <el-input
-                v-model="matchResult"
-                type="text"                
-                placeholder="请输入本次比赛结果（胜：输入1，负：输入0）"
-                class="match-result-input"
-                @input="saveState"
-              />
-              <div v-if="matchResult" class="result-status success">
-                <el-icon><CircleCheck /></el-icon>
-                <span>比赛结果已录入</span>
+
+              <!-- 胜负选择按钮 -->
+              <div class="result-buttons">
+                <el-button
+                  :type="matchResult === true ? 'success' : 'default'"
+                  size="large"
+                  @click="setMatchResult(true)"
+                  class="result-btn win-btn"
+                  :class="{ active: matchResult === true }"
+                >
+                  <el-icon class="mr-2"><CircleCheck /></el-icon>
+                  胜利
+                </el-button>
+                <el-button
+                  :type="matchResult === false ? 'danger' : 'default'"
+                  size="large"
+                  @click="setMatchResult(false)"
+                  class="result-btn lose-btn"
+                  :class="{ active: matchResult === false }"
+                >
+                  <el-icon class="mr-2"><CircleClose /></el-icon>
+                  失败
+                </el-button>
+              </div>
+
+              <!-- 结果显示 -->
+              <div v-if="matchResult !== null" class="result-display">
+                <div v-if="matchResult === true" class="result-status success">
+                  <el-icon><Trophy /></el-icon>
+                  <span>本次比赛：<strong>胜利</strong></span>
+                </div>
+                <div v-else-if="matchResult === false" class="result-status danger">
+                  <el-icon><Failed /></el-icon>
+                  <span>本次比赛：<strong>失败</strong></span>
+                </div>
               </div>
               <div v-else class="result-status warning">
                 <el-icon><Warning /></el-icon>
-                <span>请录入比赛结果后才能进行下一次</span>
+                <span>请选择比赛结果后才能进行下一次</span>
               </div>
             </div>
           </div>
@@ -114,7 +139,7 @@
 import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import { createClient } from '@supabase/supabase-js';
-import { HomeFilled, Refresh, DArrowRight, CircleCheck, Warning } from '@element-plus/icons-vue';
+import { HomeFilled, Refresh, DArrowRight, CircleCheck, Warning, CircleClose, Trophy, Failed } from '@element-plus/icons-vue';
 
 const router = useRouter();
 
@@ -136,29 +161,46 @@ const todayPairs = ref<[Player, Player][]>([]);
 const history = ref<{pairs: [Player, Player][], playersOrder: Player[], date: string}[]>([]);
 const hasGeneratedToday = ref(false);
 const lastGeneratedDate = ref<string | null>(null);
-const matchResult = ref<string | null>(null); // 比赛结果
+const matchResult = ref<boolean | null>(null); // 比赛结果：true=胜利，false=失败
+const stateId = ref<string | null>(null); // 保存状态记录的 ID
 
+// 设置比赛结果
+const setMatchResult = async (result: boolean) => {
+  matchResult.value = result;
+  await saveState();
+};
 
 // 从数据库加载玩家列表
 const loadPlayers = async () => {
   try {
+    console.log('开始加载玩家列表...');
     const { data, error } = await supabase
       .from('players')
       .select('id, name')
       .order('id', { ascending: true });
 
-    if (error) throw error;
-    
+    if (error) {
+      console.error('加载玩家列表出错:', error);
+      throw error;
+    }
+
     if (data && data.length > 0) {
       players.value = data as Player[];
+      console.log(`成功加载 ${data.length} 个玩家`);
     } else {
       // 如果数据库中没有玩家，使用默认值
+      console.log('数据库中没有玩家，使用默认值');
       players.value = [...defaultPlayers];
     }
+
+    // 加载完玩家后，加载状态
+    await loadState();
   } catch (error) {
     console.error('加载玩家列表失败:', error);
     // 出错时使用默认值
     players.value = [...defaultPlayers];
+    // 即使加载玩家失败，也尝试加载状态
+    await loadState();
   }
 };
 
@@ -166,28 +208,52 @@ const loadPlayers = async () => {
 const saveState = async () => {
   try {
     const now = new Date().toISOString();
+
     // 准备要保存的数据
-    const saveData = {
+    const saveData: any = {
       players: players.value,
       day: day.value,
       today_pairs: todayPairs.value,
       history: history.value,
       last_generated_date: lastGeneratedDate.value,
-      match_result: matchResult.value, // 添加比赛结果字段
-      updated_at: now,
-      created_at: now // 确保包含 created_at 字段
+      match_result: matchResult.value,
+      updated_at: now
     };
 
     console.log('保存数据:', JSON.stringify(saveData, null, 2));
 
-    // 使用 upsert 方法
-    const { data, error } = await supabase
-      .from('bridge_state')
-      .upsert(saveData)
-      .select();
+    // 如果有 stateId，说明是更新操作
+    if (stateId.value) {
+      console.log('更新现有记录，ID:', stateId.value);
+      const { data, error } = await supabase
+        .from('bridge_state')
+        .update(saveData)
+        .eq('id', stateId.value)
+        .select();
 
-    if (error) throw error;
-    return data;
+      if (error) throw error;
+      console.log('更新成功');
+      return data;
+    } else {
+      // 否则是插入新记录
+      console.log('插入新记录');
+      saveData.created_at = now;
+
+      const { data, error } = await supabase
+        .from('bridge_state')
+        .insert(saveData)
+        .select();
+
+      if (error) throw error;
+
+      // 保存新记录的 ID
+      if (data && data.length > 0) {
+        stateId.value = data[0].id;
+        console.log('插入成功，新记录 ID:', stateId.value);
+      }
+
+      return data;
+    }
   } catch (error) {
     console.error('保存状态失败:', error);
     throw error;
@@ -197,40 +263,61 @@ const saveState = async () => {
 // 从Supabase加载数据
 const loadState = async () => {
   try {
-    // 先尝试获取记录
+    console.log('开始加载状态...');
+
+    // 获取最新的一条记录
     const { data, error } = await supabase
       .from('bridge_state')
       .select('*')
       .order('created_at', { ascending: false })
       .limit(1);
 
-    // 处理未找到记录的情况
+    // 处理错误
     if (error) {
       console.error('加载数据失败:', error);
-      throw error;
+      // 不抛出错误，使用默认值
+      return;
+    }
+
+    // 如果没有数据，不需要做任何事（首次使用）
+    if (!data || data.length === 0) {
+      console.log('没有找到历史记录，这是首次使用');
+      return;
     }
 
     // 如果有数据，加载到状态中
-    if (data && data.length > 0) {
-      const state = data[0];
-      if (state.day) day.value = state.day;
-      if (state.today_pairs) todayPairs.value = state.today_pairs;
-      if (state.history) history.value = state.history;
-      if (state.last_generated_date) lastGeneratedDate.value = state.last_generated_date;
-      if (state.match_result !== undefined) matchResult.value = state.match_result; // 加载比赛结果
+    const state = data[0];
+    console.log('加载的数据:', state);
 
-      // 检查是否今天已经生成过
-      const today = new Date().toISOString().split('T')[0];
-      hasGeneratedToday.value = lastGeneratedDate.value === today;
+    // 保存记录的 ID，用于后续更新
+    stateId.value = state.id;
+    console.log('状态记录 ID:', stateId.value);
+
+    if (state.day !== undefined && state.day !== null) day.value = state.day;
+    if (state.today_pairs) todayPairs.value = state.today_pairs;
+    if (state.history) history.value = state.history;
+    if (state.last_generated_date) lastGeneratedDate.value = state.last_generated_date;
+
+    // 加载比赛结果，处理不同的数据类型
+    if (state.match_result !== undefined && state.match_result !== null) {
+      // 如果是字符串 "true" 或 "false"，转换为布尔值
+      if (typeof state.match_result === 'string') {
+        matchResult.value = state.match_result === 'true' || state.match_result === '1';
+      } else if (typeof state.match_result === 'boolean') {
+        matchResult.value = state.match_result;
+      } else if (typeof state.match_result === 'number') {
+        matchResult.value = state.match_result === 1;
+      }
     }
+
+    // 检查是否今天已经生成过
+    const today = new Date().toISOString().split('T')[0];
+    hasGeneratedToday.value = lastGeneratedDate.value === today;
+
+    console.log('数据加载成功');
   } catch (error: any) {
-    // 处理 PGRST116 错误（表为空）
-    if (error?.code === 'PGRST116' || error?.message?.includes('No rows returned')) {
-      console.log('表为空，将创建新记录...');
-      await saveState();
-    } else {
-      console.error('加载状态失败:', error);
-    }
+    console.error('加载状态失败:', error);
+    // 不抛出错误，让应用继续运行
   }
 };
 
@@ -285,8 +372,8 @@ const nextTime = async () => {
   }
 
   // 检查比赛结果是否已录入
-  if (matchResult.value === null || matchResult.value === '') {
-    alert('当前比赛尚未结束，请先录入比赛结果后再进行下一次');
+  if (matchResult.value === null) {
+    alert('当前比赛尚未结束，请先选择比赛结果后再进行下一次');
     return;
   }
 
@@ -503,21 +590,39 @@ onMounted(() => {
   border-top: 2px dashed #bfdbfe;
 }
 
-.match-result-input {
+/* 胜负选择按钮 */
+.result-buttons {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.result-btn {
+  flex: 1;
+  min-height: 56px;
+  font-size: 17px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border-width: 2px;
+}
+
+.result-btn.win-btn.active {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.result-btn.lose-btn.active {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.result-btn :deep(.el-icon) {
+  font-size: 20px;
+}
+
+/* 结果显示 */
+.result-display {
   margin-bottom: 12px;
-}
-
-.match-result-input :deep(.el-textarea__inner) {
-  font-size: 16px;
-  border-radius: 8px;
-  border: 2px solid #bfdbfe;
-  padding: 12px;
-  min-height: 80px;
-}
-
-.match-result-input :deep(.el-textarea__inner):focus {
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
 .result-status {
@@ -539,6 +644,17 @@ onMounted(() => {
 .result-status.success .el-icon {
   font-size: 20px;
   color: #10b981;
+}
+
+.result-status.danger {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border: 2px solid #fca5a5;
+}
+
+.result-status.danger .el-icon {
+  font-size: 20px;
+  color: #ef4444;
 }
 
 .result-status.warning {
@@ -653,9 +769,15 @@ onMounted(() => {
     width: 100%;
   }
 
-  .match-result-input :deep(.el-textarea__inner) {
-    font-size: 15px;
-    padding: 10px;
+  .result-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .result-btn {
+    width: 100%;
+    min-height: 52px;
+    font-size: 16px;
   }
 
   .result-status {
