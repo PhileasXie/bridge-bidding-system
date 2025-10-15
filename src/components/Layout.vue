@@ -3,7 +3,7 @@
     <!-- 顶部导航栏 -->
     <el-header class="bg-bridge-blue text-white shadow-md">
       <div class="container mx-auto flex items-center justify-between h-full">
-        <h1 class="text-2xl font-bold">新睿桥牌二盖一体系</h1>        
+        <h1 class="text-2xl font-bold cursor-pointer" @click="$router.push('/')">新睿桥牌二盖一体系</h1>        
       </div>
     </el-header>
 
