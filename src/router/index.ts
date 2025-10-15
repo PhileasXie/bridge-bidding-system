@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Layout from '../components/Layout.vue'
+import Home from '../components/Home.vue'
 import OpeningBids from '../components/OpeningBids.vue'
 import ClubResponses from '../components/ClubResponses.vue'
 import DiamondResponses from '../components/DiamondResponses.vue'
@@ -12,6 +13,7 @@ import PreemptiveOpeningBid from '../components/PreemptiveOpeningBid.vue'
 import SlamBids from '../components/SlamBids.vue'
 import DefensiveBidding from '../components/DefensiveBidding.vue'
 import OpeningLeadAndSignals from '../components/OpeningLeadAndSignals.vue'
+import PartnerRotation from '../components/PartnerRotation.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -22,7 +24,8 @@ const router = createRouter({
       children: [
         {
           path: '',
-          redirect: '/opening'
+          component: Home,
+          name: 'Home'
         },
         {
           path: '/opening',
@@ -74,6 +77,12 @@ const router = createRouter({
           component: OpeningLeadAndSignals
         }
       ]
+    },
+    // 独立页面 - 不使用 Layout 模板
+    {
+      path: "/partner-rotation",
+      component: PartnerRotation,
+      name: 'PartnerRotation'
     }
   ]
 })

@@ -1153,7 +1153,7 @@
 
     <!-- 1H—1S—2NT—3C后开叫方的再叫数据 -->
     <div class="mb-8">
-      <h4 class="bridge-subtitle">1♥️—1NT—2♠️—3♣️（6点以上，重询）后开叫方的再叫</h4>
+      <h4 class="bridge-subtitle">1♥️—1♠️—2NT—3♣️（6点以上，重询）后开叫方的再叫</h4>
       <el-table :data="oneHeartOneSpadeJumpTwoNTThreeClubRebid" style="width: 100%" border>
         <el-table-column prop="rebid" label="再叫" width="120">
           <template #default="{ row }">
