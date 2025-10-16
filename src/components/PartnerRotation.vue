@@ -69,39 +69,53 @@
             <div class="match-result-section">
               <h4 class="result-title mt-4">比赛结果：</h4>
 
-              <!-- 胜负选择按钮 -->
+              <!-- 胜负平选择按钮 -->
               <div class="result-buttons">
                 <el-button
-                  :type="matchResult === true ? 'success' : 'default'"
+                  :type="matchResult === 1 ? 'success' : 'default'"
                   size="large"
-                  @click="setMatchResult(true)"
+                  @click="setMatchResult(1)"
                   class="result-btn win-btn"
-                  :class="{ active: matchResult === true }"
+                  :class="{ active: matchResult === 1 }"
                 >
                   <el-icon class="mr-2"><CircleCheck /></el-icon>
-                  胜利
+                  胜
                 </el-button>
                 <el-button
-                  :type="matchResult === false ? 'danger' : 'default'"
+                  :type="matchResult === 0 ? 'warning' : 'default'"
                   size="large"
-                  @click="setMatchResult(false)"
+                  @click="setMatchResult(0)"
+                  class="result-btn draw-btn"
+                  :class="{ active: matchResult === 0 }"
+                >
+                  <el-icon class="mr-2"><Minus /></el-icon>
+                  平
+                </el-button>
+                <el-button
+                  :type="matchResult === -1 ? 'danger' : 'default'"
+                  size="large"
+                  @click="setMatchResult(-1)"
                   class="result-btn lose-btn"
-                  :class="{ active: matchResult === false }"
+                  :class="{ active: matchResult === -1 }"
                 >
                   <el-icon class="mr-2"><CircleClose /></el-icon>
-                  失败
+                  负
                 </el-button>
               </div>
 
               <!-- 结果显示 -->
               <div v-if="matchResult !== null" class="result-display">
-                <div v-if="matchResult === true" class="result-status success">
+                <div v-if="matchResult === 1" class="result-status success">
                   <el-icon><Trophy /></el-icon>
-                  <span>本次比赛：<strong>胜利</strong></span>
+                  <span>本次比赛：<strong>胜</strong></span>
                 </div>
-                <div v-else-if="matchResult === false" class="result-status danger">
+                <div v-else-if="matchResult === 0" class="result-status draw">
+                  <el-icon><Minus /></el-icon>
+                  <span>本次比赛：<strong>平</strong></span>
+                </div>
+                <div v-else-if="matchResult === -1" class="result-status danger">
                   <el-icon><Failed /></el-icon>
-                  <span>本次比赛：<strong>失败</strong></span>
+                  <span>本次比赛：<strong>负</strong></span>
                 </div>
               </div>
               <div v-else class="result-status warning">
@@ -139,7 +153,7 @@
 import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import { createClient } from '@supabase/supabase-js';
-import { HomeFilled, Refresh, DArrowRight, CircleCheck, Warning, CircleClose, Trophy, Failed } from '@element-plus/icons-vue';
+import { HomeFilled, Refresh, DArrowRight, CircleCheck, Warning, CircleClose, Trophy, Failed, Minus } from '@element-plus/icons-vue';
 
 const router = useRouter();
 
@@ -161,11 +175,11 @@ const todayPairs = ref<[Player, Player][]>([]);
 const history = ref<{pairs: [Player, Player][], playersOrder: Player[], date: string}[]>([]);
 const hasGeneratedToday = ref(false);
 const lastGeneratedDate = ref<string | null>(null);
-const matchResult = ref<boolean | null>(null); // 比赛结果：true=胜利，false=失败
+const matchResult = ref<number | null>(null); // 比赛结果：1=胜利，0=平局，-1=失败
 const stateId = ref<string | null>(null); // 保存状态记录的 ID
 
 // 设置比赛结果
-const setMatchResult = async (result: boolean) => {
+const setMatchResult = async (result: number) => {
   matchResult.value = result;
   await saveState();
 };
@@ -298,16 +312,9 @@ const loadState = async () => {
     if (state.history) history.value = state.history;
     if (state.last_generated_date) lastGeneratedDate.value = state.last_generated_date;
 
-    // 加载比赛结果，处理不同的数据类型
+    // 加载比赛结果（数据库字段类型为 int4）
     if (state.match_result !== undefined && state.match_result !== null) {
-      // 如果是字符串 "true" 或 "false"，转换为布尔值
-      if (typeof state.match_result === 'string') {
-        matchResult.value = state.match_result === 'true' || state.match_result === '1';
-      } else if (typeof state.match_result === 'boolean') {
-        matchResult.value = state.match_result;
-      } else if (typeof state.match_result === 'number') {
-        matchResult.value = state.match_result === 1;
-      }
+      matchResult.value = state.match_result;
     }
 
     // 检查是否今天已经生成过
@@ -590,7 +597,7 @@ onMounted(() => {
   border-top: 2px dashed #bfdbfe;
 }
 
-/* 胜负选择按钮 */
+/* 胜负平选择按钮 */
 .result-buttons {
   display: flex;
   gap: 12px;
@@ -604,20 +611,50 @@ onMounted(() => {
   font-weight: 600;
   transition: all 0.3s ease;
   border-width: 2px;
+  background-color: white;
+  border-color: #dcdfe6;
+  color: #606266;
+}
+
+.result-btn:hover:not(.active) {
+  border-color: #c6e2ff;
+  background-color: #f5f7fa;
 }
 
 .result-btn.win-btn.active {
+  background-color: #f0f9ff;
+  border-color: #6ee7b7;
+  color: #065f46;
   transform: scale(1.05);
   box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
 }
 
+.result-btn.win-btn.active :deep(.el-icon) {
+  color: #10b981;
+}
+
+.result-btn.draw-btn.active {
+  background-color: #fef3c7;
+  border-color: #fcd34d;
+  color: #92400e;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+.result-btn.draw-btn.active :deep(.el-icon) {
+  color: #f59e0b;
+}
+
 .result-btn.lose-btn.active {
+  background-color: #fee2e2;
+  border-color: #fca5a5;
+  color: #991b1b;
   transform: scale(1.05);
   box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
 }
 
-.result-btn :deep(.el-icon) {
-  font-size: 20px;
+.result-btn.lose-btn.active :deep(.el-icon) {
+  color: #ef4444;
 }
 
 /* 结果显示 */
@@ -644,6 +681,17 @@ onMounted(() => {
 .result-status.success .el-icon {
   font-size: 20px;
   color: #10b981;
+}
+
+.result-status.draw {
+  background-color: #fef3c7;
+  color: #92400e;
+  border: 2px solid #fcd34d;
+}
+
+.result-status.draw .el-icon {
+  font-size: 20px;
+  color: #f59e0b;
 }
 
 .result-status.danger {
