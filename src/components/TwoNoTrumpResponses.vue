@@ -716,12 +716,12 @@ const twoNTResponses = ref([
   { bid: '3NT', points: '5+', description: '5点以上，没有4张高花，或有3张高花的非均型牌，止叫' },
   { bid: '4C', points: '11+', description: '11点以上，格伯A问叫；有独立的6张以上套。（答叫：0-4A；1A；2A；3A）' },
   { bid: '4D/4H', points: '4—8', description: '4—8点，6张以上H/S；德克萨斯转移叫。（开叫人叫4H/4S后；止叫）' },
-  { bid: '4S', points: '12+', description: '12点以上，6张以上H/S；德克萨斯转移叫。（开叫人叫4H/4S后；4NT关键张问叫）' },
-  { bid: '4NT', points: '2—7', description: '2—7点，6－5以上低花套' },
-  { bid: '5C/5D', points: '11—12', description: '11—12点，没有4张高花或5张低花；小满贯邀叫' },
-  { bid: '5NT', points: '3—6', description: '3—6点，7张C/D套' },
-  { bid: '6NT', points: '13—14', description: '13—14点，对套，从最低的4张套叫起，逼叫6NT' },
-  { bid: '7NT', points: '12—15', description: '12—15点，适合打6NT的牌型，止叫' },
+  { bid: '', points: '12+', description: '12点以上，6张以上H/S；德克萨斯转移叫。（开叫人叫4H/4S后；4NT关键张问叫）' },
+  { bid: '4S', points: '2—7', description: '6－5以上低花套' },
+  { bid: '4NT', points: '11—12', description: '11—12点，没有4张高花或5张低花；小满贯邀叫' },
+  { bid: '5C/5D', points: '3—6', description: '7张C/D套' },  
+  { bid: '5NT', points: '13—14', description: '13—14点，对套，从最低的4张套叫起，逼叫6NT' },
+  { bid: '6NT', points: '12—15', description: '12—15点，适合打6NT的牌型，止叫' },
   { bid: '7NT', points: '16+', description: '16点以上，适合打7NT的牌型，止叫' }
 ])
 
