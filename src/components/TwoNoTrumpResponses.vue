@@ -710,9 +710,8 @@ const getPointTagType = (points: string) => {
 // 2NT开叫的应叫
 const twoNTResponses = ref([
   { bid: 'Pass', points: '0—4', description: '0—4点，均型牌' },
-  { bid: '3C', points: '5+', description: '5点以上，傀儡斯台曼；问开叫人高花套' },
-  { bid: '3D', points: '0—3', description: '0—3点，C单缺的三套牌；通常有5～6张D，准备Pass开叫人的再叫' },
-  { bid: '3H/3S', points: '3+', description: '3点以上，5张以上H/S；雅各比转移叫' },
+  { bid: '3C', points: '5+', description: '5点以上，傀儡斯台曼；问开叫人高花套' },  
+  { bid: '3D/3H', points: '3+', description: '3点以上，5张以上H/S；雅各比转移叫' },
   { bid: '3S', points: '5+', description: '5点以上，低花斯台曼；至少5－4低花套' },
   { bid: '3NT', points: '5+', description: '5点以上，没有4张高花，或有3张高花的非均型牌，止叫' },
   { bid: '4C', points: '11+', description: '11点以上，格伯A问叫；有独立的6张以上套。（答叫：0-4A；1A；2A；3A）' },
