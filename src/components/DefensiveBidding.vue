@@ -1925,10 +1925,10 @@ const oneNTDoubleResponses = ref([
     { bid: 'Pass', points: '8点以上', description: '惩罚。' },
     { bid: '2C', points: '5点以上', description: '斯台曼问叫' },
     { bid: '2D/2H', points: '3点以上', description: '杰可贝转移叫。' },
-    { bid: '2S', points: '4-7点', description: '双低花5 5套。' },
+    { bid: '2S', points: '4-7点', description: '双低花5-5以上套。' },
     { bid: '2NT', points: '4-6点', description: '要求同伴转移到3C。（后 pass＝C套，3D＝D套；示弱）' },
     { bid: '3C/3D', points: '7-8点', description: '6张套有2张大牌，邀叫3NT。' },
-    { bid: '4H/4S', points: '9点以上', description: '德克萨斯转移叫。' }    
+    { bid: '4D/4H', points: '9点以上', description: '德克萨斯转移叫。' }    
 ])
 
 // 兰迪约定叫后的应叫数据
