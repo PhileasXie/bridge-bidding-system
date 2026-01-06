@@ -618,6 +618,28 @@
                     </el-table>
                 </div>
 
+                <!-- 对1NT加倍后的应叫 -->
+                <div class="mb-6">
+                    <h4 class="text-lg font-semibold mb-3 text-bridge-green">（1NT）—— X —— (/) —— ?</h4>
+                    <el-table :data="oneNTDoubleResponses" border stripe>
+                        <el-table-column prop="bid" label="叫品" width="100">
+                            <template #default="{ row }">
+                                <span class="font-bold text-bridge-blue">{{ suitToEmoji(row.bid) }}</span>
+                            </template>
+                        </el-table-column>
+                        <el-table-column prop="points" label="点力范围" width="120">
+                            <template #default="{ row }">
+                                <el-tag :type="getPointTagType(row.points)" effect="plain">{{ row.points }}</el-tag>
+                            </template>
+                        </el-table-column>
+                        <el-table-column prop="description" label="说明">
+                            <template #default="{ row }">
+                                <span>{{ suitToEmoji(row.description) }}</span>
+                            </template>
+                        </el-table-column>
+                    </el-table>
+                </div>
+
                 <!-- 兰迪约定叫后的应叫 -->
                 <div class="mb-6">
                     <h4 class="text-lg font-semibold mb-3 text-bridge-green">兰迪约定叫后的应叫：</h4>
@@ -1896,6 +1918,17 @@ const oneNTOpponentOvercalls = ref([
     { bid: '3D', points: '6—10点', description: '7张以上♦️，阻击叫。' },
     { bid: '3H', points: '6—10点', description: '7张以上♥️，阻击叫。' },
     { bid: '3S', points: '6—10点', description: '7张以上♠️，阻击叫。' }
+])
+
+// 对1NT加倍后，同伴的应叫
+const oneNTDoubleResponses = ref([
+    { bid: 'Pass', points: '8点以上', description: '惩罚。' },
+    { bid: '2C', points: '5点以上', description: '斯台曼问叫' },
+    { bid: '2D/2H', points: '3点以上', description: '杰可贝转移叫。' },
+    { bid: '2S', points: '4-7点', description: '双低花5 5套。' },
+    { bid: '2NT', points: '4-6点', description: '要求同伴转移到3C。（后 pass＝C套，3D＝D套；示弱）' },
+    { bid: '3C/3D', points: '7-8点', description: '6张套有2张大牌，邀叫3NT。' },
+    { bid: '4H/4S', points: '9点以上', description: '德克萨斯转移叫。' }    
 ])
 
 // 兰迪约定叫后的应叫数据
