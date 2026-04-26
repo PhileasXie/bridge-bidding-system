@@ -2053,7 +2053,7 @@ const oneClubOneSpadeTwoSpadeTwoNTRebid = ref([
 const oneClubOneDiamondOneNTRebid = ref([
   { rebid: 'Pass', points: '6-9点', description: '不符合其他叫品' },
   { rebid: '2C', points: '6-9点', description: '要求同伴叫2D；后续Pass = 5张以上D，示弱' },
-  { rebid: '2D', points: '10-12点', description: '要求同伴叫2D；后续选择自然叫品，邀叫' },
+  { rebid: '2D', points: '13点以上', description: '13点以上，不符合其他叫品，逼局。' },
   { rebid: '2H', points: '13点以上', description: '不符合其他叫品，逼局' },
   { rebid: '2S', points: '13点以上', description: '5张以上D＋4张H，逼局' },
   { rebid: '2NT', points: '13点以上', description: '5张以上D＋4张S，逼局' },
